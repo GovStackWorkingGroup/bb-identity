@@ -1,6 +1,6 @@
 {
   "uuid": "256918d8-70c9-4e45-ad37-a6cb1a3f39f7",
-  "lastMigration": 24,
+  "lastMigration": 25,
   "name": "Mockoon bbidentity",
   "endpointPrefix": "",
   "latency": 0,
@@ -377,13 +377,13 @@
       "responseMode": null
     },
     {
-      "uuid": "f90e90b4-866f-478f-b34c-a358d8196f01",
+      "uuid": "147bdd72-fe41-4bc8-89dc-1b1c154f5b38",
       "documentation": "API to add new open ID connect (OIDC) clients,",
       "method": "post",
       "endpoint": "client-mgmt/oidc-client",
       "responses": [
         {
-          "uuid": "bf45f01a-d052-430c-8a88-ea4524b29f69",
+          "uuid": "6a875a37-b7d7-480a-8167-cb8227f360c8",
           "body": "{\n  \"responseTime\": \"string\",\n  \"response\": {\n    \"clientId\": \"string\"\n  },\n  \"errors\": []\n}",
           "latency": 0,
           "statusCode": 200,
@@ -561,6 +561,38 @@
       ],
       "enabled": true,
       "responseMode": null
+    },
+    {
+      "uuid": "8f51c09f-816b-4137-a8aa-8e30bd56a2f7",
+      "documentation": "Endpoint to fetch all the public keys of the IdP server. Returns public key set in the JWKS format",
+      "method": "get",
+      "endpoint": ".well-known/jwks.json",
+      "responses": [
+        {
+          "uuid": "a30c589f-e696-4472-96fa-0050decf17c7",
+          "body": "{\n  \"keys\": [\n    {\n      \"kid\": \"string\",\n      \"alg\": \"RS256\",\n      \"use\": \"sig\",\n      \"kty\": \"RSA\",\n      \"e\": \"string\",\n      \"n\": \"string\",\n      \"status\": \"ACTIVE\",\n      \"x5c\": \"string\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Retrieved public key set in the JWKS format",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
     }
   ],
   "proxyMode": false,
@@ -594,5 +626,24 @@
       "value": ""
     }
   ],
-  "data": []
+  "data": [],
+  "folders": [],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "147bdd72-fe41-4bc8-89dc-1b1c154f5b38"
+    },
+    {
+      "type": "route",
+      "uuid": "91963d01-81ab-4fdd-8b43-9a08652e6173"
+    },
+    {
+      "type": "route",
+      "uuid": "f90e90b4-866f-478f-b34c-a358d8196f01"
+    },
+    {
+      "type": "route",
+      "uuid": "8f51c09f-816b-4137-a8aa-8e30bd56a2f7"
+    }
+  ]
 }
