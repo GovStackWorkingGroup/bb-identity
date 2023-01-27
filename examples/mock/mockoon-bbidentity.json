@@ -1,6 +1,6 @@
 {
   "uuid": "256918d8-70c9-4e45-ad37-a6cb1a3f39f7",
-  "lastMigration": 24,
+  "lastMigration": 25,
   "name": "Mockoon bbidentity",
   "endpointPrefix": "",
   "latency": 0,
@@ -377,13 +377,13 @@
       "responseMode": null
     },
     {
-      "uuid": "f90e90b4-866f-478f-b34c-a358d8196f01",
+      "uuid": "ffb358f6-71c6-4f93-94c6-4b1c39b9304b",
       "documentation": "API to add new open ID connect (OIDC) clients,",
       "method": "post",
       "endpoint": "client-mgmt/oidc-client",
       "responses": [
         {
-          "uuid": "bf45f01a-d052-430c-8a88-ea4524b29f69",
+          "uuid": "3cd079d6-84dd-4f48-b94b-c1f7774fef48",
           "body": "{\n  \"responseTime\": \"string\",\n  \"response\": {\n    \"clientId\": \"string\"\n  },\n  \"errors\": []\n}",
           "latency": 0,
           "statusCode": 200,
@@ -561,6 +561,38 @@
       ],
       "enabled": true,
       "responseMode": null
+    },
+    {
+      "uuid": "7f882ffc-146c-41c8-bd12-23f8ab32e558",
+      "documentation": "Open ID Connect Dynamic Provider Discovery is not currently supported. This endpoint is only used to facilitate OIDC provider details in a standardised manner.",
+      "method": "get",
+      "endpoint": ".well-known/openid-configuration",
+      "responses": [
+        {
+          "uuid": "77216d78-b01c-45fe-9085-9a054a3ecb96",
+          "body": "{\n  \"issuer\": \"string\",\n  \"authorization_endpoint\": \"string\",\n  \"token_endpoint\": \"string\",\n  \"jwks_uri\": \"string\",\n  \"registration_endpoint\": \"string\",\n  \"scopes_supported\": \"openid\",\n  \"response_types_supported\": \"code\",\n  \"acr_values_supported\": \"string\",\n  \"userinfo_signing_alg_values_supported\": \"string\",\n  \"userinfo_encryption_alg_values_supported\": \"string\",\n  \"userinfo_encryption_enc_values_supported\": \"string\",\n  \"token_endpoint_auth_methods_supported\": \"private_key_jwt\",\n  \"display_values_supported\": \"string\",\n  \"claim_types_supported\": \"normal\",\n  \"claims_supported\": \"string\",\n  \"claims_locales_supported\": \"string\",\n  \"ui_locales_supported\": \"string\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Successfully retrieved data",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
     }
   ],
   "proxyMode": false,
@@ -594,5 +626,24 @@
       "value": ""
     }
   ],
-  "data": []
+  "data": [],
+  "folders": [],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "ffb358f6-71c6-4f93-94c6-4b1c39b9304b"
+    },
+    {
+      "type": "route",
+      "uuid": "91963d01-81ab-4fdd-8b43-9a08652e6173"
+    },
+    {
+      "type": "route",
+      "uuid": "f90e90b4-866f-478f-b34c-a358d8196f01"
+    },
+    {
+      "type": "route",
+      "uuid": "7f882ffc-146c-41c8-bd12-23f8ab32e558"
+    }
+  ]
 }
