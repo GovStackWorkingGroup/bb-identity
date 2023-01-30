@@ -1,6 +1,6 @@
 const { spec } = require("pactum");
 const chai = require("chai");
-const { When, Then, Before, After } = require("@cucumber/cucumber");
+const { Given, When, Then, Before, After } = require("@cucumber/cucumber");
 const { localhost } = require("./helpers/helpers");
 
 const baseUrl = `${localhost}.well-known/jwks.json`;
@@ -10,6 +10,10 @@ Before(() => {
 });
 
 // Scenario: Successfully retrieves the IdP server's public keys
+Given("Wants to retrieve the IdP server's public keys", () => {
+  return "Wants to retrieve the IdP server's public keys";
+});
+
 When("The request to retrieve all public keys of the IdP server is sent", () =>
   specJWKS.get(baseUrl)
 );
