@@ -10,9 +10,10 @@ Before(() => {
 });
 
 // Scenario: Successfully retrieves the IdP server's public keys
-Given("Wants to retrieve the IdP server's public keys", () => {
-  return "Wants to retrieve the IdP server's public keys";
-});
+Given(
+  "Wants to retrieve the IdP server's public keys",
+  () => "Wants to retrieve the IdP server's public keys"
+);
 
 When("The request to retrieve all public keys of the IdP server is sent", () =>
   specJWKS.get(baseUrl)
