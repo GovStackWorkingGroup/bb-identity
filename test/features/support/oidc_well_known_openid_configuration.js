@@ -1,7 +1,7 @@
 const { spec } = require("pactum");
 const { regex } = require("pactum-matchers");
 const chai = require("chai");
-const { When, Then, Before, After } = require("@cucumber/cucumber");
+const { When, Then, Before, After, Given } = require("@cucumber/cucumber");
 const { localhost } = require("./helpers/helpers");
 
 let specOpenidConfiguration;
@@ -13,6 +13,10 @@ Before(() => {
 });
 
 // Scenario: Successful facilitation of OIDC provider details
+Given("Wants to facilitate the OIDC provider details in a standard way", () => {
+  return "Wants to facilitate the OIDC provider details in a standard way";
+});
+
 When("The request to facilitate the OIDC provider details is sent", () =>
   specOpenidConfiguration.get(baseUrl)
 );
