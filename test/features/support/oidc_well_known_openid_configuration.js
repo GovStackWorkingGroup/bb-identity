@@ -13,9 +13,10 @@ Before(() => {
 });
 
 // Scenario: Successful facilitation of OIDC provider details
-Given("Wants to facilitate the OIDC provider details in a standard way", () => {
-  return "Wants to facilitate the OIDC provider details in a standard way";
-});
+Given(
+  "Wants to facilitate the OIDC provider details in a standard way",
+  () => "Wants to facilitate the OIDC provider details in a standard way"
+);
 
 When("The request to facilitate the OIDC provider details is sent", () =>
   specOpenidConfiguration.get(baseUrl)
