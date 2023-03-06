@@ -1,134 +1,86 @@
-const pactum = require("pactum");
-const { Given, When, Then, Before, After } = require("@cucumber/cucumber");
+const chai = require('chai');
+const { spec } = require('pactum');
+const { Given, When, Then, Before, After } = require('@cucumber/cucumber');
 const {
   localhost,
-  validTransactionId,
-  requestTime,
-} = require("./helpers/helpers");
+  default_response_time,
+  ui_auth_code_endpoint,
+  ui_auth_code_response_schema,
+  status_code_200,
+  request_time,
+} = require('./helpers/helpers');
+
+chai.use(require('chai-json-schema'));
 
 let specUIAuthCode;
-let invalidTransactionId;
+const baseUrl = localhost + ui_auth_code_endpoint;
+const tag = { tags: `@endpoint=/${ui_auth_code_endpoint}` };
 
-const baseUrl = `${localhost}authorization/auth-code`;
-
-const responseSchema = {
-  type: "object",
-  properties: {
-    responseTime: {
-      type: "string",
-    },
-    response: {
-      type: "object",
-      properties: {
-        code: {
-          type: "string",
-        },
-        redirectUri: {
-          type: "string",
-        },
-        nonce: {
-          type: "string",
-        },
-        state: {
-          type: "string",
-        },
-      },
-      additionalProperties: false,
-    },
-    errors: {},
-  },
-  additionalProperties: false,
-};
-
-const requestFunction = (transactionId) =>
+const requestFunction = (transactionId, permitted_authorize_scopes, accepted_claims) =>
   specUIAuthCode.post(baseUrl).withBody({
-    requestTime: requestTime,
+    requestTime: request_time,
     request: {
       transactionId: transactionId,
-      permittedAuthorizeScopes: ["string"],
-      acceptedClaims: ["string"],
+      permittedAuthorizeScopes: permitted_authorize_scopes,
+      acceptedClaims: accepted_claims,
     },
   });
 
-const responseValidator = async (withErrors = false) => {
-  if (!withErrors) {
-    responseSchema.properties.errors = { type: "array", maxItems: 0 };
-  } else {
-    responseSchema.properties.errors = {
-      type: "array",
-      items: {
-        type: "object",
-        properties: {
-          errorCode: {
-            type: "string",
-            enum: ["invalid_request", "invalid_transaction"],
-          },
-          errorMessage: {
-            type: "string",
-          },
-        },
-        additionalProperties: false,
-      },
-    };
-  }
-
-  specUIAuthCode.expectStatus(200).expectJsonSchema(responseSchema);
-  await specUIAuthCode.toss();
-};
-
-Before(() => {
-  specUIAuthCode = pactum.spec();
-  specUIAuthCode.expectResponseTime(15000);
+Before(tag, () => {
+  specUIAuthCode = spec();
 });
 
-// Scenario: Successfully receive the authorization code
+// Scenario: Successfully retrieve the authorization code
 Given(
-  "The end-user wants to receive the authorization code",
-  () => "Every required body parameters are valid"
+  'The end-user wants to send the accepted consent and permitted scopes via JS application',
+  () => 'The end-user wants to send the accepted consent and permitted scopes via JS application'
 );
 
 When(
-  "The end-user tries to trigger an action with the required parameters to receive the authorization code",
-  () => requestFunction(validTransactionId)
+  'POST request with given current date as requestTime {string} as transactionId {string} as permittedAuthorizeScopes {string} as acceptedClaims is sent',
+  (transactionId, permitted_authorize_scopes, accepted_claims) => {
+    const scopes = permitted_authorize_scopes.split(',').map((scope) => {
+      return scope.trim();
+    });
+    const claims = accepted_claims.split(',').map((claim) => {
+      return claim.trim();
+    });
+    requestFunction(transactionId, scopes, claims);
+  }
 );
 
-Then(
-  "The end-user successfully received the authorization code",
-  async () => await responseValidator()
+Then('The response is received', async () => await specUIAuthCode.toss());
+
+Then('The response should be returned in a timely manner', () =>
+  specUIAuthCode.response().to.have.responseTimeLessThan(default_response_time)
 );
 
-// Scenario: The user is not able to receive the authorization code because of an invalid transactionId parameter
-Given(
-  "The end-user wants to receive the authorization code with an invalid transactionId parameter",
-  () => (invalidTransactionId = "")
+Then('The response should match json schema', () =>
+  chai.expect(specUIAuthCode._response.json).to.be.jsonSchema(ui_auth_code_response_schema)
 );
 
-When(
-  "The end-user tries to trigger an action with an invalid transactionId to receive the authorization code",
-  () => requestFunction(invalidTransactionId)
+Then('The response should contain authorization code', () => {
+  chai
+    .expect(specUIAuthCode._response.json.response.code)
+    .to.be.a('string', 'Invalid type of the authorization code in the response');
+  chai.expect(specUIAuthCode._response.json.response.code).to.not.be.empty;
+});
+
+Then('The response should have status 200', () =>
+  specUIAuthCode.response().to.have.status(status_code_200)
 );
 
-Then(
-  "The result of an operation to receive the authorization code because an invalid transactionId was specified",
-  async () => await responseValidator(true)
+Then('The response header content-type should be {string}', (header_value) =>
+  specUIAuthCode.response().to.have.header('content-type', header_value)
 );
 
-// Scenario: The user cannot get the authorization code because no parameter was specified
-Given(
-  "The end-user wants to obtain the authorization code without specifying a parameter",
-  () => "None of the required parameters was provided."
-);
+// Scenario: Unable to retrieve the authorization code because of an invalid transactionId parameter
+// Code for this scenario is written in the aforementioned example
 
-When(
-  "The end-user tries to trigger an action without specifying a parameter to receive the authorization code",
-  () => specUIAuthCode.post(baseUrl).withBody()
-);
+// Scenario: Unable to retrieve the authorization code because no parameter was specified
+// The rest of the code is written in the aforementioned example
+When('POST request without payload is sent', () => specUIAuthCode.post(baseUrl).withBody());
 
-Then(
-  "The result of an operation to receive the authorization code because no parameter was specified",
-  async () => await responseValidator(true)
-);
-
-After(() => {
+After(tag, () => {
   specUIAuthCode.end();
 });

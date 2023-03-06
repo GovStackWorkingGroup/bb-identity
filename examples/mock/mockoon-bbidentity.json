@@ -583,14 +583,14 @@
             {
               "target": "body",
               "modifier": "requestTime",
-              "value": "^\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d\\.\\d+([+-][0-2]\\d:[0-5]\\d|Z)$",
+              "value": "^\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d[\\.\\,]\\d+([+-][0-2]\\d:[0-5]\\d|Z)$",
               "invert": false,
               "operator": "regex"
             },
             {
               "target": "body",
               "modifier": "request.transactionId",
-              "value": "[a-zA-Z0-9_]",
+              "value": "^[a-zA-Z0-9_]+$",
               "invert": false,
               "operator": "regex"
             }
@@ -598,7 +598,7 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": false
         },
         {
           "uuid": "d2089dce-3451-4dcc-85d6-d8acf8a85b2f",
@@ -615,7 +615,7 @@
             {
               "target": "body",
               "modifier": "request.transactionId",
-              "value": "[a-zA-Z0-9_]",
+              "value": "^[a-zA-Z0-9_]+$",
               "invert": true,
               "operator": "regex"
             }
@@ -630,7 +630,7 @@
           "body": "{\n\t\"responseTime\": \"string\",\n\t\"errors\": [{\n      \"errorCode\": \"invalid_request\",\n      \"errorMessage\": \"string\"\n  }]\n}",
           "latency": 0,
           "statusCode": 200,
-          "label": "Invalid request - invalid responseTime parameter.",
+          "label": "Invalid request",
           "headers": [],
           "bodyType": "INLINE",
           "filePath": "",
@@ -648,7 +648,7 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": true
         }
       ],
       "enabled": true,
