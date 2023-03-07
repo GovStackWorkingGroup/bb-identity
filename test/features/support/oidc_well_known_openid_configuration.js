@@ -1,73 +1,57 @@
-const { spec } = require("pactum");
-const { regex } = require("pactum-matchers");
-const chai = require("chai");
-const { When, Then, Before, After, Given } = require("@cucumber/cucumber");
-const { localhost } = require("./helpers/helpers");
+const chai = require('chai');
+const { spec } = require('pactum');
+const { When, Then, Before, After, Given } = require('@cucumber/cucumber');
+const {
+  localhost,
+  statusCode200,
+  defaultResponseTime,
+  oidcWellKnownOpenidConfigurationEndpoint,
+  oidcWellKnownOpenidConfigurationSchema,
+} = require('./helpers/helpers');
+
+chai.use(require('chai-json-schema'));
 
 let specOpenidConfiguration;
+const baseUrl = localhost + oidcWellKnownOpenidConfigurationEndpoint;
+const tag = { tags: `@endpoint=/${oidcWellKnownOpenidConfigurationEndpoint}` };
 
-const baseUrl = `${localhost}.well-known/openid-configuration`;
-
-Before(() => {
-  specOpenidConfiguration = spec().expectResponseTime(15000);
+Before(tag, () => {
+  specOpenidConfiguration = spec();
 });
 
 // Scenario: Successful facilitation of OIDC provider details
 Given(
-  "Wants to facilitate the OIDC provider details in a standard way",
-  () => "Wants to facilitate the OIDC provider details in a standard way"
+  'Wants to facilitate the OIDC provider details in a standard way',
+  () => 'Wants to facilitate the OIDC provider details in a standard way'
 );
 
-When("The request to facilitate the OIDC provider details is sent", () =>
+When('GET request to facilitate the OIDC provider details is sent', () =>
   specOpenidConfiguration.get(baseUrl)
 );
 
-Then(
-  "The operation returns the facilitated details of the OIDC provider",
-  async () => {
-    specOpenidConfiguration
-      .expectStatus(200)
-      .expectJsonMatch({
-        issuer: regex("string", /^\S+$/),
-        authorization_endpoint: regex("string", /^\S+$/),
-        token_endpoint: regex("string", /^\S+$/),
-        jwks_uri: regex("string", /^\S+$/),
-        registration_endpoint: regex("string", /^\S+$/),
-        scopes_supported: regex("openid", /^openid$/),
-        response_types_supported: regex("code", /^code$/),
-      })
-      .expectJsonSchema({
-        type: "object",
-      });
+Then('The response is received', async () => await specOpenidConfiguration.toss());
 
-    await specOpenidConfiguration.toss();
-
-    const response = specOpenidConfiguration._response.json;
-    let regexToUse;
-
-    for (const key in response) {
-      switch (key) {
-        case "claim_types_supported": {
-          regexToUse = /^normal$|^aggregated$|^distributed$/;
-          break;
-        }
-        case "token_endpoint_auth_methods_supported": {
-          regexToUse = /^private_key_jwt$/;
-          break;
-        }
-        default: {
-          regexToUse = /^\S+$/;
-          break;
-        }
-      }
-
-      chai
-        .expect(response[key])
-        .to.match(regexToUse, "Invalid " + key + " value");
-    }
-  }
+Then('The response should be returned in a timely manner', () =>
+  specOpenidConfiguration.response().to.have.responseTimeLessThan(defaultResponseTime)
 );
 
-After(() => {
+Then('The response should have status 200', () =>
+  specOpenidConfiguration.response().to.have.status(statusCode200)
+);
+
+Then('The response header content-type should be {string}', (header_value) =>
+  specOpenidConfiguration.response().to.have.header('content-type', header_value)
+);
+
+Then('The response should match json schema', () =>
+  chai
+    .expect(specOpenidConfiguration._response.json)
+    .to.be.jsonSchema(
+      oidcWellKnownOpenidConfigurationSchema,
+      'Response body does not match with the json-schema\n'
+    )
+);
+
+After(tag, () => {
   specOpenidConfiguration.end();
 });
