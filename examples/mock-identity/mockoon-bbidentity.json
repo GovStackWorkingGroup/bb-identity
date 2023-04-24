@@ -1,11 +1,11 @@
 {
   "uuid": "256918d8-70c9-4e45-ad37-a6cb1a3f39f7",
-  "lastMigration": 24,
+  "lastMigration": 27,
   "name": "Mockoon bbidentity",
   "endpointPrefix": "",
   "latency": 0,
   "port": 3001,
-  "hostname": "0.0.0.0",
+  "hostname": "",
   "routes": [
     {
       "uuid": "f90e90b4-866f-478f-b34c-a358d8196f01",
@@ -272,7 +272,8 @@
         }
       ],
       "enabled": true,
-      "responseMode": null
+      "responseMode": null,
+      "type": "http"
     },
     {
       "uuid": "91963d01-81ab-4fdd-8b43-9a08652e6173",
@@ -374,7 +375,8 @@
         }
       ],
       "enabled": true,
-      "responseMode": null
+      "responseMode": null,
+      "type": "http"
     },
     {
       "uuid": "ffb358f6-71c6-4f93-94c6-4b1c39b9304b",
@@ -560,7 +562,8 @@
         }
       ],
       "enabled": true,
-      "responseMode": null
+      "responseMode": null,
+      "type": "http"
     },
     {
       "uuid": "7f882ffc-146c-41c8-bd12-23f8ab32e558",
@@ -570,7 +573,7 @@
       "responses": [
         {
           "uuid": "77216d78-b01c-45fe-9085-9a054a3ecb96",
-          "body": "{\n  \"issuer\": \"string\",\n  \"authorization_endpoint\": \"string\",\n  \"token_endpoint\": \"string\",\n  \"jwks_uri\": \"string\",\n  \"registration_endpoint\": \"string\",\n  \"scopes_supported\": \"openid\",\n  \"response_types_supported\": \"code\",\n  \"acr_values_supported\": \"string\",\n  \"userinfo_signing_alg_values_supported\": \"string\",\n  \"userinfo_encryption_alg_values_supported\": \"string\",\n  \"userinfo_encryption_enc_values_supported\": \"string\",\n  \"token_endpoint_auth_methods_supported\": \"private_key_jwt\",\n  \"display_values_supported\": \"string\",\n  \"claim_types_supported\": \"normal\",\n  \"claims_supported\": \"string\",\n  \"claims_locales_supported\": \"string\",\n  \"ui_locales_supported\": \"string\"\n}",
+          "body": "{\n  \"issuer\": \"string\",\n  \"authorization_endpoint\": \"string\",\n  \"token_endpoint\": \"string\",\n  \"userinfo_endpoint\": \"string\",\n  \"jwks_uri\": \"string\",\n  \"registration_endpoint\": \"string\",\n  \"scopes_supported\": [\n    \"openid\"\n  ],\n  \"response_types_supported\": [\n    \"code\"\n  ],\n  \"acr_values_supported\": [\n   \"boolean\"\n  ],\n  \"userinfo_signing_alg_values_supported\": [\n    \"boolean\"\n  ],\n  \"userinfo_encryption_alg_values_supported\": [\n    \"boolean\"\n  ],\n  \"userinfo_encryption_enc_values_supported\": [\n    \"boolean\"\n  ],\n  \"token_endpoint_auth_methods_supported\": [\n    \"private_key_jwt\"\n  ],\n  \"display_values_supported\": [\n    \"boolean\"\n  ],\n  \"claim_types_supported\": [\n    \"normal\"\n  ],\n  \"claims_supported\": [\n    \"string\"\n  ],\n  \"claims_locales_supported\": [\n    \"string\"\n  ],\n  \"ui_locales_supported\": [\n    \"string\"\n  ],\n  \"response_modes_supported\": [\n    \"query\"\n  ],\n  \"token_endpoint_auth_signing_alg_values_supported\": [\n    \"RS256\"\n  ],\n  \"id_token_signing_alg_values_supported\": [\n    \"RS256\"\n  ]\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "Successfully retrieved data",
@@ -587,7 +590,8 @@
         }
       ],
       "enabled": true,
-      "responseMode": null
+      "responseMode": null,
+      "type": "http"
     }
   ],
   "proxyMode": false,

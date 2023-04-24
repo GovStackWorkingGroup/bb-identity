@@ -7,7 +7,7 @@ const {
   defaultResponseTime,
   oidcWellKnownOpenidConfigurationEndpoint,
   oidcWellKnownOpenidConfigurationSchema,
-} = require('./helpers/helpers');
+} = require('../support/helpers/helpers');
 
 chai.use(require('chai-json-schema'));
 

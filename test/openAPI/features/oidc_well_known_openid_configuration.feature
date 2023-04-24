@@ -1,8 +1,6 @@
 @method=GET @endpoint=/.well-known/openid-configuration
 Feature: This endpoint is only used to facilitate the OIDC provider details in a standardised manner.
 
-  Open ID Connect Dynamic Provider Discovery is not currently supported. 
-
   @smoke @unit @positive
   Scenario: Successful facilitation of OIDC provider details
     Given Wants to facilitate the OIDC provider details in a standard way
