@@ -8,7 +8,7 @@ Feature: API to add new open ID connect (OIDC) clients.
     Then User receives a response from the POST /client-mgmt/oidc-client endpoint
     And The POST /client-mgmt/oidc-client endpoint response should be returned in a timely manner 15000ms
     And The POST /client-mgmt/oidc-client endpoint response should have status 200
-    And The POST /client-mgmt/oidc-client endpoint response should have content-type: application/json header
+    And The POST /client-mgmt/oidc-client response should have "content-type": "application/json" header
     And The POST /client-mgmt/oidc-client endpoint response should match json schema
     And The POST /client-mgmt/oidc-client endpoint response should contain "e-health-service" as clientId
     And The POST /client-mgmt/oidc-client endpoint response should contain empty errors array
@@ -20,7 +20,7 @@ Feature: API to add new open ID connect (OIDC) clients.
     Then User receives a response from the POST /client-mgmt/oidc-client endpoint
     And The POST /client-mgmt/oidc-client endpoint response should be returned in a timely manner 15000ms
     And The POST /client-mgmt/oidc-client endpoint response should have status 200
-    And The POST /client-mgmt/oidc-client endpoint response should have content-type: application/json header
+    And The POST /client-mgmt/oidc-client response should have "content-type": "application/json" header
     And The POST /client-mgmt/oidc-client endpoint response should match json schema
     And The POST /client-mgmt/oidc-client endpoint response should contain "<clientId>" as clientId
     And The POST /client-mgmt/oidc-client endpoint response should contain empty errors array
@@ -39,7 +39,7 @@ Feature: API to add new open ID connect (OIDC) clients.
     Then User receives a response from the POST /client-mgmt/oidc-client endpoint
     And The POST /client-mgmt/oidc-client endpoint response should be returned in a timely manner 15000ms
     And The POST /client-mgmt/oidc-client endpoint response should have status 200
-    And The POST /client-mgmt/oidc-client endpoint response should have content-type: application/json header
+    And The POST /client-mgmt/oidc-client response should have "content-type": "application/json" header
     And The POST /client-mgmt/oidc-client endpoint response should match json schema with error
     And The POST /client-mgmt/oidc-client endpoint response should match with error code "invalid_request"
 
@@ -50,7 +50,7 @@ Feature: API to add new open ID connect (OIDC) clients.
     Then User receives a response from the POST /client-mgmt/oidc-client endpoint
     And The POST /client-mgmt/oidc-client endpoint response should be returned in a timely manner 15000ms
     And The POST /client-mgmt/oidc-client endpoint response should have status 200
-    And The POST /client-mgmt/oidc-client endpoint response should have content-type: application/json header
+    And The POST /client-mgmt/oidc-client response should have "content-type": "application/json" header
     And The POST /client-mgmt/oidc-client endpoint response should match json schema with error
     And The POST /client-mgmt/oidc-client endpoint response should match with error code "invalid_acr"
 
@@ -61,7 +61,7 @@ Feature: API to add new open ID connect (OIDC) clients.
     Then User receives a response from the POST /client-mgmt/oidc-client endpoint
     And The POST /client-mgmt/oidc-client endpoint response should be returned in a timely manner 15000ms
     And The POST /client-mgmt/oidc-client endpoint response should have status 200
-    And The POST /client-mgmt/oidc-client endpoint response should have content-type: application/json header
+    And The POST /client-mgmt/oidc-client response should have "content-type": "application/json" header
     And The POST /client-mgmt/oidc-client endpoint response should match json schema with error
     And The POST /client-mgmt/oidc-client endpoint response should match with error code "invalid_claim"
 
@@ -72,7 +72,7 @@ Feature: API to add new open ID connect (OIDC) clients.
     Then User receives a response from the POST /client-mgmt/oidc-client endpoint
     And The POST /client-mgmt/oidc-client endpoint response should be returned in a timely manner 15000ms
     And The POST /client-mgmt/oidc-client endpoint response should have status 200
-    And The POST /client-mgmt/oidc-client endpoint response should have content-type: application/json header
+    And The POST /client-mgmt/oidc-client response should have "content-type": "application/json" header
     And The POST /client-mgmt/oidc-client endpoint response should match json schema with error
     And The POST /client-mgmt/oidc-client endpoint response should match with error code "invalid_grant_type"
 
@@ -83,7 +83,7 @@ Feature: API to add new open ID connect (OIDC) clients.
     Then User receives a response from the POST /client-mgmt/oidc-client endpoint
     And The POST /client-mgmt/oidc-client endpoint response should be returned in a timely manner 15000ms
     And The POST /client-mgmt/oidc-client endpoint response should have status 200
-    And The POST /client-mgmt/oidc-client endpoint response should have content-type: application/json header
+    And The POST /client-mgmt/oidc-client response should have "content-type": "application/json" header
     And The POST /client-mgmt/oidc-client endpoint response should match json schema with error
     And The POST /client-mgmt/oidc-client endpoint response should match with error code "invalid_client_auth"
 
@@ -94,7 +94,7 @@ Feature: API to add new open ID connect (OIDC) clients.
     Then User receives a response from the POST /client-mgmt/oidc-client endpoint
     And The POST /client-mgmt/oidc-client endpoint response should be returned in a timely manner 15000ms
     And The POST /client-mgmt/oidc-client endpoint response should have status 200
-    And The POST /client-mgmt/oidc-client endpoint response should have content-type: application/json header
+    And The POST /client-mgmt/oidc-client response should have "content-type": "application/json" header
     And The POST /client-mgmt/oidc-client endpoint response should match json schema with error
     And The POST /client-mgmt/oidc-client endpoint response should match with error code "invalid_client_name"
 
@@ -105,7 +105,7 @@ Feature: API to add new open ID connect (OIDC) clients.
     Then User receives a response from the POST /client-mgmt/oidc-client endpoint
     And The POST /client-mgmt/oidc-client endpoint response should be returned in a timely manner 15000ms
     And The POST /client-mgmt/oidc-client endpoint response should have status 200
-    And The POST /client-mgmt/oidc-client endpoint response should have content-type: application/json header
+    And The POST /client-mgmt/oidc-client response should have "content-type": "application/json" header
     And The POST /client-mgmt/oidc-client endpoint response should match json schema with error
     And The POST /client-mgmt/oidc-client endpoint response should match with error code "invalid_rp_id"
 
@@ -116,7 +116,7 @@ Feature: API to add new open ID connect (OIDC) clients.
     Then User receives a response from the POST /client-mgmt/oidc-client endpoint
     And The POST /client-mgmt/oidc-client endpoint response should be returned in a timely manner 15000ms
     And The POST /client-mgmt/oidc-client endpoint response should have status 200
-    And The POST /client-mgmt/oidc-client endpoint response should have content-type: application/json header
+    And The POST /client-mgmt/oidc-client response should have "content-type": "application/json" header
     And The POST /client-mgmt/oidc-client endpoint response should match json schema with error
     And The POST /client-mgmt/oidc-client endpoint response should match with error code "invalid_uri"
 
@@ -127,7 +127,7 @@ Feature: API to add new open ID connect (OIDC) clients.
     Then User receives a response from the POST /client-mgmt/oidc-client endpoint
     And The POST /client-mgmt/oidc-client endpoint response should be returned in a timely manner 15000ms
     And The POST /client-mgmt/oidc-client endpoint response should have status 200
-    And The POST /client-mgmt/oidc-client endpoint response should have content-type: application/json header
+    And The POST /client-mgmt/oidc-client response should have "content-type": "application/json" header
     And The POST /client-mgmt/oidc-client endpoint response should match json schema with error
     And The POST /client-mgmt/oidc-client endpoint response should match with error code "invalid_client_id"
 
@@ -138,7 +138,7 @@ Feature: API to add new open ID connect (OIDC) clients.
     Then User receives a response from the POST /client-mgmt/oidc-client endpoint
     And The POST /client-mgmt/oidc-client endpoint response should be returned in a timely manner 15000ms
     And The POST /client-mgmt/oidc-client endpoint response should have status 200
-    And The POST /client-mgmt/oidc-client endpoint response should have content-type: application/json header
+    And The POST /client-mgmt/oidc-client response should have "content-type": "application/json" header
     And The POST /client-mgmt/oidc-client endpoint response should match json schema with error
     And The POST /client-mgmt/oidc-client endpoint response should match with error code "invalid_public_key"
 
@@ -149,7 +149,7 @@ Feature: API to add new open ID connect (OIDC) clients.
     Then User receives a response from the POST /client-mgmt/oidc-client endpoint
     And The POST /client-mgmt/oidc-client endpoint response should be returned in a timely manner 15000ms
     And The POST /client-mgmt/oidc-client endpoint response should have status 200
-    And The POST /client-mgmt/oidc-client endpoint response should have content-type: application/json header
+    And The POST /client-mgmt/oidc-client response should have "content-type": "application/json" header
     And The POST /client-mgmt/oidc-client endpoint response should match json schema with error
     And The POST /client-mgmt/oidc-client endpoint response should match with error code "invalid_redirect_uri"
 
@@ -160,6 +160,6 @@ Feature: API to add new open ID connect (OIDC) clients.
     Then User receives a response from the POST /client-mgmt/oidc-client endpoint
     And The POST /client-mgmt/oidc-client endpoint response should be returned in a timely manner 15000ms
     And The POST /client-mgmt/oidc-client endpoint response should have status 200
-    And The POST /client-mgmt/oidc-client endpoint response should have content-type: application/json header
+    And The POST /client-mgmt/oidc-client response should have "content-type": "application/json" header
     And The POST /client-mgmt/oidc-client endpoint response should match json schema with error
     And The POST /client-mgmt/oidc-client endpoint response should match with error code "duplicate_client_id"

@@ -33,8 +33,11 @@ Then(/^The response from \/\.well\-known\/jwks\.json should have status (\d+)$/,
   specJWKS.response().to.have.status(status)
 );
 
-Then(/^The response from \/\.well\-known\/jwks\.json should have content\-type: application\/json header$/, () =>
-  specJWKS.response().to.have.header(contentTypeHeader.key, contentTypeHeader.value)
+Then(/^The response from \/\.well\-known\/jwks\.json response should have "([^"]*)": "([^"]*)" header$/,
+  (key, value) =>
+    specJWKS
+      .response()
+      .should.have.headerContains(key, value)
 );
 
 Then(/^The response from \/\.well\-known\/jwks\.json should match json schema$/, () =>

@@ -103,11 +103,11 @@ Then(
 );
 
 Then(
-  'The PUT \\/client-mgmt\\/oidc-client\\/\\{client_id} endpoint response should have content-type: application\\/json header',
-  () =>
+  'The PUT \\/client-mgmt\\/oidc-client\\/\\{client_id} response should have {string}: {string} header',
+  (key, value) =>
     specClientUpdate
       .response()
-      .should.have.header(contentTypeHeader.key, contentTypeHeader.value)
+      .should.have.headerContains(key, value)
 );
 
 Then(

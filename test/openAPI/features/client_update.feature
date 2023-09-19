@@ -9,7 +9,7 @@ Feature: API to update existing Open ID Connect (OIDC) client.
     Then User receives a response from the PUT /client-mgmt/oidc-client/{client_id} endpoint
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should be returned in a timely manner 15000ms
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have status 200
-    And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have content-type: application/json header
+    And The PUT /client-mgmt/oidc-client/{client_id} response should have "content-type": "application/json" header
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match json schema
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should contain "e-health-service" as clientId
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should contain empty errors array
@@ -22,7 +22,7 @@ Feature: API to update existing Open ID Connect (OIDC) client.
     Then User receives a response from the PUT /client-mgmt/oidc-client/{client_id} endpoint
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should be returned in a timely manner 15000ms
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have status 200
-    And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have content-type: application/json header
+    And The PUT /client-mgmt/oidc-client/{client_id} response should have "content-type": "application/json" header
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match json schema with error
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match with error code "invalid_client_auth"
 
@@ -34,7 +34,7 @@ Feature: API to update existing Open ID Connect (OIDC) client.
     Then User receives a response from the PUT /client-mgmt/oidc-client/{client_id} endpoint
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should be returned in a timely manner 15000ms
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have status 200
-    And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have content-type: application/json header
+    And The PUT /client-mgmt/oidc-client/{client_id} response should have "content-type": "application/json" header
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match json schema with error
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match with error code "invalid_grant_type"
 
@@ -46,7 +46,7 @@ Feature: API to update existing Open ID Connect (OIDC) client.
     Then User receives a response from the PUT /client-mgmt/oidc-client/{client_id} endpoint
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should be returned in a timely manner 15000ms
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have status 200
-    And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have content-type: application/json header
+    And The PUT /client-mgmt/oidc-client/{client_id} response should have "content-type": "application/json" header
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match json schema with error
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match with error code "invalid_claim"
 
@@ -58,7 +58,7 @@ Feature: API to update existing Open ID Connect (OIDC) client.
     Then User receives a response from the PUT /client-mgmt/oidc-client/{client_id} endpoint
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should be returned in a timely manner 15000ms
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have status 200
-    And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have content-type: application/json header
+    And The PUT /client-mgmt/oidc-client/{client_id} response should have "content-type": "application/json" header
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match json schema with error
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match with error code "invalid_acr"
 
@@ -70,7 +70,7 @@ Feature: API to update existing Open ID Connect (OIDC) client.
     Then User receives a response from the PUT /client-mgmt/oidc-client/{client_id} endpoint
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should be returned in a timely manner 15000ms
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have status 200
-    And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have content-type: application/json header
+    And The PUT /client-mgmt/oidc-client/{client_id} response should have "content-type": "application/json" header
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match json schema with error
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match with error code "invalid_redirect_uri"
 
@@ -82,7 +82,7 @@ Feature: API to update existing Open ID Connect (OIDC) client.
     Then User receives a response from the PUT /client-mgmt/oidc-client/{client_id} endpoint
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should be returned in a timely manner 15000ms
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have status 200
-    And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have content-type: application/json header
+    And The PUT /client-mgmt/oidc-client/{client_id} response should have "content-type": "application/json" header
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match json schema with error
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match with error code "invalid_uri"
 
@@ -94,7 +94,7 @@ Feature: API to update existing Open ID Connect (OIDC) client.
     Then User receives a response from the PUT /client-mgmt/oidc-client/{client_id} endpoint
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should be returned in a timely manner 15000ms
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have status 200
-    And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have content-type: application/json header
+    And The PUT /client-mgmt/oidc-client/{client_id} response should have "content-type": "application/json" header
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match json schema with error
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match with error code "invalid_client_name"
 
@@ -106,6 +106,6 @@ Feature: API to update existing Open ID Connect (OIDC) client.
     Then User receives a response from the PUT /client-mgmt/oidc-client/{client_id} endpoint
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should be returned in a timely manner 15000ms
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have status 200
-    And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have content-type: application/json header
+    And The PUT /client-mgmt/oidc-client/{client_id} response should have "content-type": "application/json" header
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match json schema with error
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match with error code "invalid_client_id"

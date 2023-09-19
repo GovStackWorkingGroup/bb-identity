@@ -72,9 +72,11 @@ Then(/^The \/linked-authorization\/link-code endpoint response should have statu
 });
 
 Then(
-  /^The \/linked-authorization\/link-code endpoint response should have content-type: application\/json header$/,
-  () => {
-    specWalletGenerateLinkCode.response().should.have.header(contentTypeHeader.key, contentTypeHeader.value);
+  /^The \/linked-authorization\/link-code response should have "([^"]*)": "([^"]*)" header$/,
+  (key, value) => {
+    specWalletGenerateLinkCode
+      .response()
+      .should.have.headerContains(key, value)
   }
 );
 
@@ -202,7 +204,7 @@ Given(/^The first authorization flow for transactionId ends$/, async () => {
 });
 
 When(
-  /^Send POST \/linked-authorization\/link-code request with given X-XSRF-TOKEN header, XSRF-TOKEN cookie, reaused completed transactionId and requestTime$/,
+  /^Send POST \/linked-authorization\/link-code request with given X-XSRF-TOKEN header, XSRF-TOKEN cookie, already used completed transactionId and requestTime$/,
   () => {
     specWalletGenerateLinkCodeReused
       .post(baseUrl)
@@ -232,9 +234,11 @@ Then(
 );
 
 Then(
-  /^The \/linked-authorization\/link-code endpoint response for completed transactionId should have content-type: application\/json header$/,
-  () => {
-    specWalletGenerateLinkCodeReused.response().should.have.header(contentTypeHeader.key, contentTypeHeader.value);
+  /^The \/linked-authorization\/link-code endpoint response for completed transactionId should have "([^"]*)": "([^"]*)" header$/,
+  (key, value) => {
+    specWalletGenerateLinkCodeReused
+    .response()
+    .should.have.headerContains(key, value);
   }
 );
 

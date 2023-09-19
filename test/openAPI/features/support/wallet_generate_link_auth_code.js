@@ -119,10 +119,10 @@ Given(
 );
 
 When(
-    /^Send POST \/linked\-authorization\/link\-auth\-code request with given linkCode and transactionId$/,
-    () =>
+    /^Send POST \/linked\-authorization\/link\-auth\-code request with given linkedCode and transactionId and "([^"]*)" header and requestTime$/,
+    (X_XSRF_TOKEN) =>
         specWalletGenerateLinkAuthCode.post(baseUrl)
-          .withHeaders(X_XSRF_TOKEN.key, X_XSRF_TOKEN.value)
+          .withHeaders(X_XSRF_TOKEN, X_XSRF_TOKEN)
           .withJson({
           requestTime: new Date().toISOString(),
           request: {
@@ -151,11 +151,11 @@ Then(
 );
 
 Then(
-    /^The \/linked\-authorization\/link\-auth\-code endpoint response should have content\-type: application\/json header$/,
-    () =>
+    /^The \/linked\-authorization\/link\-auth\-code response should have "([^"]*)": "([^"]*)" header$/,
+    (key, value) =>
         specWalletGenerateLinkAuthCode
-            .response()
-            .should.have.header(contentTypeHeader.key, contentTypeHeader.value)
+        .response()
+        .should.have.headerContains(key, value)
 );
 
 Then(
@@ -168,13 +168,13 @@ Then(
     }
 );
 
-// Scenario: Not able to validate the link-code and its expiry and generate the link auth code because of invalid linkCode
+// Scenario: Not able to validate the link-code and its expiry and generate the link auth code because of invalid linkedCode
 // Given and others Then for this scenario are written in the aforementioned example
 When(
-    /^Send POST \/linked\-authorization\/link\-auth\-code request with given invalid linkCode$/,
-    () =>
+    /^Send POST \/linked\-authorization\/link\-auth\-code request with given invalid linkedCode and "([^"]*)" header and requestTime$/,
+    (X_XSRF_TOKEN) =>
         specWalletGenerateLinkAuthCode.post(baseUrl)
-          .withHeaders(X_XSRF_TOKEN.key, X_XSRF_TOKEN.value)
+          .withHeaders(X_XSRF_TOKEN, X_XSRF_TOKEN)
           .withJson({
           requestTime: new Date().toISOString(),
           request: {
@@ -209,10 +209,10 @@ Then(
 // Scenario: Not able to validate the link-code and its expiry and generate the link auth code because of invalid transactionId
 // Given and others Then for this scenario are written in the aforementioned example
 When(
-    /^Send POST \/linked\-authorization\/link\-auth\-code request with given invalid transactionId$/,
-    () =>
+    /^Send POST \/linked\-authorization\/link\-auth\-code request with given invalid transactionId and "([^"]*)" header and requestTime$/,
+    (X_XSRF_TOKEN) =>
         specWalletGenerateLinkAuthCode.post(baseUrl)
-            .withHeaders(X_XSRF_TOKEN.key, X_XSRF_TOKEN.value)
+            .withHeaders(X_XSRF_TOKEN, X_XSRF_TOKEN)
             .withJson({
               requestTime: new Date().toISOString(),
               request: {
@@ -222,13 +222,13 @@ When(
             })
 );
 
-// Scenario: Not able to validate the link-code and its expiry and generate the link auth code because of invalid linkCode and transactionId
+// Scenario: Not able to validate the link-code and its expiry and generate the link auth code because of invalid linkedCode and transactionId
 // Given and others Then for this scenario are written in the aforementioned example
 When(
-    /^Send POST \/linked\-authorization\/link\-auth\-code request with given invalid linkCode and transactionId$/,
-    () =>
+    /^Send POST \/linked\-authorization\/link\-auth\-code request with given invalid linkedCode and transactionId and "([^"]*)" header and requestTime$/,
+    (X_XSRF_TOKEN) =>
         specWalletGenerateLinkAuthCode.post(baseUrl)
-            .withHeaders(X_XSRF_TOKEN.key, X_XSRF_TOKEN.value)
+            .withHeaders(X_XSRF_TOKEN, X_XSRF_TOKEN)
             .withJson({
               requestTime: new Date().toISOString(),
               request: {
@@ -241,10 +241,10 @@ When(
 // Scenario: Not able to validate the link-code and its expiry and generate the link auth code because of invalid requestTime
 // Given and others Then for this scenario are written in the aforementioned example
 When(
-    /^Send POST \/linked\-authorization\/link\-auth\-code request with given linkCode and transactionId and invalidRequestTime$/,
-    () =>
+    /^Send POST \/linked\-authorization\/link\-auth\-code request with given linkedCode and transactionId and "([^"]*)" header and invalid requestTime$/,
+    (X_XSRF_TOKEN) =>
         specWalletGenerateLinkAuthCode.post(baseUrl)
-            .withHeaders(X_XSRF_TOKEN.key, X_XSRF_TOKEN.value)
+            .withHeaders(X_XSRF_TOKEN, X_XSRF_TOKEN)
             .withJson({
               requestTime: null,
               request: {
@@ -315,10 +315,10 @@ Given(/^The second link code, transaction and authenticate is completed before P
 })
 
 When(
-    /^Send POST \/linked\-authorization\/link\-auth\-code request with given valid linkCode and transactionId$/,
-    () =>
+    /^Send POST \/linked\-authorization\/link\-auth\-code request with given valid linkedCode and transactionId and "([^"]*)" header and requestTime$/,
+    (X_XSRF_TOKEN) =>
         specWalletGenerateLinkAuthCode.post(baseUrl)
-            .withHeaders(X_XSRF_TOKEN.key, X_XSRF_TOKEN.value)
+            .withHeaders(X_XSRF_TOKEN, X_XSRF_TOKEN)
             .withJson({
               requestTime: new Date().toISOString(),
               request: {
@@ -402,10 +402,10 @@ Given(
 );
 
 When(
-    /^Send POST \/linked\-authorization\/link\-auth\-code request with given linkCode and reused completed transactionId$/,
-    () =>
+    /^Send POST \/linked\-authorization\/link\-auth\-code request with given linkedCode and reused completed transactionId and "([^"]*)" header and requestTime$/,
+    (X_XSRF_TOKEN) =>
         specWalletGenerateLinkAuthCodeReusable.post(baseUrl)
-            .withHeaders(X_XSRF_TOKEN.key, X_XSRF_TOKEN.value)
+            .withHeaders(X_XSRF_TOKEN, X_XSRF_TOKEN)
             .withJson({
               requestTime: new Date().toISOString(),
               request: {
@@ -434,11 +434,11 @@ Then(
 );
 
 Then(
-    /^The \/linked\-authorization\/link\-auth\-code endpoint response for reuse transactionId should have content\-type: application\/json header$/,
-    () =>
+    /^The \/linked\-authorization\/link\-auth\-code endpoint response for reuse transactionId should have "([^"]*)": "([^"]*)" header$/,
+    (key, value) =>
         specWalletGenerateLinkAuthCodeReusable
-            .response()
-            .should.have.header(contentTypeHeader.key, contentTypeHeader.value)
+        .response()
+        .should.have.headerContains(key, value)
 );
 
 Then(

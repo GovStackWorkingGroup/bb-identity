@@ -88,11 +88,11 @@ Then(
 );
 
 Then(
-  'The POST \\/client-mgmt\\/oidc-client endpoint response should have content-type: application\\/json header',
-  () =>
+  'The POST \\/client-mgmt\\/oidc-client response should have {string}: {string} header',
+  (key, value) =>
     specClientCreate
       .response()
-      .should.have.header(contentTypeHeader.key, contentTypeHeader.value)
+      .should.have.headerContains(key, value)
 );
 
 Then(

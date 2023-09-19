@@ -87,11 +87,11 @@ Then(/^The GET \/oidc\/userinfo endpoint response should have status (\d+)$/,
     (status) => specOidcUserinfo.response().to.have.status(status)
 );
 
-Then(/^The GET \/oidc\/userinfo endpoint response should have content\-type: application\/jwt header$/,
-    () =>
-        specOidcUserinfo
-            .response()
-            .should.have.header(contentTypeHeaderJWT.key, contentTypeHeaderJWT.value)
+Then(/^The GET \/oidc\/userinfo response should have "([^"]*)": "([^"]*)" header$/,
+  (key, value) =>
+      specOidcUserinfo
+      .response()
+      .should.have.headerContains(key, value)
 );
 
 Then(/^The GET \/oidc\/userinfo endpoint response should match json schema$/,

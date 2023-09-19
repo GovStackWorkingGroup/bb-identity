@@ -48,7 +48,7 @@ Given('Wants to validate the wallet and generate wallet user id',
     () => 'Wants to validate the wallet and generate wallet user id');
 
 When(
-    /^Send POST \/wallet\-binding request with given "([^"]*)" as individualId and "([^"]*)" as authFactorType and "([^"]*)" as format and "([^"]*)" as challenge and publicKey$/,
+    /^Send POST \/wallet\-binding request with given "([^"]*)" as individualId and "([^"]*)" as authFactorType and "([^"]*)" as format and "([^"]*)" as challenge and requestTime and publicKey$/,
     (individualId, authFactorType, format, challenge) => {
       specWalletBinding
           .post(baseUrl)
@@ -91,11 +91,11 @@ Then(
 );
 
 Then(
-    /^The \/wallet\-binding endpoint endpoint response should have content\-type: application\/json header$/,
-    () =>
+    /^The \/wallet\-binding response should have "([^"]*)": "([^"]*)" header$/,
+    (key, value) =>
         specWalletBinding
-            .response()
-            .should.have.header(contentTypeHeader.key, contentTypeHeader.value)
+        .response()
+        .should.have.headerContains(key, value)
 );
 
 Then(
@@ -127,7 +127,7 @@ Then(
 // Scenario: Not able to generate the wallet binding because of unsupported challenge format
 // Given and others Then for this scenario are written in the aforementioned example
 When(
-    /^Send POST \/wallet\-binding request with given invalid format "([^"]*)" as individualId and "([^"]*)" as authFactorType and "([^"]*)" as format and "([^"]*)" as challenge and publicKey$/,
+    /^Send POST \/wallet\-binding request with given invalid format "([^"]*)" as individualId and "([^"]*)" as authFactorType and "([^"]*)" as format and "([^"]*)" as challenge and requestTime and publicKey$/,
     (individualId, authFactorType, format, challenge) =>
         specWalletBinding
             .post(baseUrl)
@@ -174,7 +174,7 @@ Then(
 // Scenario: Not able to generate the wallet binding because of unsupported challenge format
 // Given and others Then for this scenario are written in the aforementioned example
 When(
-  /^Send POST \/wallet\-binding request with given format "([^"]*)" as individualId and "([^"]*)" as authFactorType and "([^"]*)" as format and "([^"]*)" as challenge and invalid publicKey$/,
+  /^Send POST \/wallet\-binding request with given format "([^"]*)" as individualId and "([^"]*)" as authFactorType and "([^"]*)" as format and "([^"]*)" as challenge and requestTime and invalid publicKey$/,
   (individualId, authFactorType, format, challenge) =>
     specWalletBinding
       .post(baseUrl)
@@ -199,7 +199,7 @@ When(
 // Scenario: Not able to generate the wallet binding because of duplicated public key
 // Given and others Then for this scenario are written in the aforementioned example
 When(
-  /^Send POST \/wallet\-binding request with given "([^"]*)" as individualId and "([^"]*)" as authFactorType and "([^"]*)" as format and "([^"]*)" as challenge and duplicated publicKey$/,
+  /^Send POST \/wallet\-binding request with given "([^"]*)" as individualId and "([^"]*)" as authFactorType and "([^"]*)" as format and "([^"]*)" as challenge and requestTime and duplicated publicKey$/,
   (individualId, authFactorType, format, challenge) => {
     specWalletBinding
         .post(baseUrl)

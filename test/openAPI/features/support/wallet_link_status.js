@@ -278,7 +278,7 @@ When(
   }
 );
 
-// Scenario: Not able to check the status of link code because of the link code connected to a different transaction id
+// Scenario: Not able to check the status of link code because of the linkCode connected to a different transactionId
 // Given and others Then for this scenario are written in the aforementioned example
 Given('The second link code for diffrent transaction id is generated', async () => {
   specWalletGenerateLinkCode_02
@@ -297,7 +297,7 @@ Given('The second link code for diffrent transaction id is generated', async () 
 });
 
 When(
-  /^Send POST \/linked-authorization\/link-status request with given X-XSRF-TOKEN header, transactionId, link code connected to a different transaction id and requestTime$/,
+  /^Send POST \/linked-authorization\/link-status request with given X-XSRF-TOKEN header, transactionId, linkCode connected to a different transactionId and requestTime$/,
   () => {
     specWalletLinkStatus
       .post(baseUrl)

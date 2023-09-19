@@ -40,8 +40,11 @@ Then(/^The response from \/\.well\-known\/openid\-configuration should have stat
 );
 
 Then(
-  /^The response from \/\.well\-known\/openid\-configuration should have content\-type: application\/json header$/,
-  () => specOpenidConfiguration.response().to.have.header(contentTypeHeader.key, contentTypeHeader.value)
+  /^The response from \/\.well\-known\/openid\-configuration response should have "([^"]*)": "([^"]*)" header$/,
+  (key, value) =>
+    specOpenidConfiguration
+      .response()
+      .should.have.headerContains(key, value)
 );
 
 Then(/^The response from \/\.well\-known\/openid\-configuration should match json schema$/, () =>

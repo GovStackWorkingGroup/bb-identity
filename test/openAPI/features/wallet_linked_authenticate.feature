@@ -9,7 +9,7 @@ Feature: The endpoint to check the correctness of the data.
     Then Receive a response from the /linked-authorization/authenticate endpoint
     And The /linked-authorization/authenticate endpoint response should be returned in a timely manner 15000ms
     And The /linked-authorization/authenticate endpoint response should have status 200
-    And The /linked-authorization/authenticate endpoint response should have content-type: application/json header
+    And The /linked-authorization/authenticate response should have "content-type": "application/json" header
     And The /linked-authorization/authenticate endpoint response linkedTransactionId should be the same as sent in request
     And The /linked-authorization/authenticate endpoint response should match json schema without errors
 
@@ -20,7 +20,7 @@ Feature: The endpoint to check the correctness of the data.
     And Receive a response from the /linked-authorization/authenticate endpoint for reused link code
     And The /linked-authorization/authenticate endpoint response for reused link code should be returned in a timely manner 15000ms
     And The /linked-authorization/authenticate endpoint response for reused link code should have status 200
-    And The /linked-authorization/authenticate endpoint response for reused link code should have content-type: application/json header
+    And The /linked-authorization/authenticate endpoint response for reused link code should have "content-type": "application/json" header
     And The /linked-authorization/authenticate endpoint response for reused link code should match json schema with errors
     And The /linked-authorization/authenticate response for reused link code should contain errorCode property equals to "invalid_transaction_id"
 
@@ -31,7 +31,7 @@ Feature: The endpoint to check the correctness of the data.
     Then Receive a response from the /linked-authorization/authenticate endpoint
     And The /linked-authorization/authenticate endpoint response should be returned in a timely manner 15000ms
     And The /linked-authorization/authenticate endpoint response should have status 200
-    And The /linked-authorization/authenticate endpoint response should have content-type: application/json header
+    And The /linked-authorization/authenticate response should have "content-type": "application/json" header
     And The /linked-authorization/authenticate endpoint response should match json schema with errors
     And The /linked-authorization/authenticate response should contain errorCode property equals to "invalid_transaction_id"
 
@@ -42,7 +42,7 @@ Feature: The endpoint to check the correctness of the data.
     Then Receive a response from the /linked-authorization/authenticate endpoint
     And The /linked-authorization/authenticate endpoint response should be returned in a timely manner 15000ms
     And The /linked-authorization/authenticate endpoint response should have status 200
-    And The /linked-authorization/authenticate endpoint response should have content-type: application/json header
+    And The /linked-authorization/authenticate response should have "content-type": "application/json" header
     And The /linked-authorization/authenticate endpoint response should match json schema with errors
     And The /linked-authorization/authenticate response should contain errorCode property equals to "invalid_identifier"
 
@@ -53,7 +53,7 @@ Feature: The endpoint to check the correctness of the data.
     Then Receive a response from the /linked-authorization/authenticate endpoint
     And The /linked-authorization/authenticate endpoint response should be returned in a timely manner 15000ms
     And The /linked-authorization/authenticate endpoint response should have status 200
-    And The /linked-authorization/authenticate endpoint response should have content-type: application/json header
+    And The /linked-authorization/authenticate response should have "content-type": "application/json" header
     And The /linked-authorization/authenticate endpoint response should match json schema with errors
     And The /linked-authorization/authenticate response should contain errorCode property equals to "invalid_no_of_challenges"
 
@@ -65,7 +65,7 @@ Feature: The endpoint to check the correctness of the data.
     Then Receive a response from the /linked-authorization/authenticate endpoint
     And The /linked-authorization/authenticate endpoint response should be returned in a timely manner 15000ms
     And The /linked-authorization/authenticate endpoint response should have status 200
-    And The /linked-authorization/authenticate endpoint response should have content-type: application/json header
+    And The /linked-authorization/authenticate response should have "content-type": "application/json" header
     And The /linked-authorization/authenticate endpoint response should match json schema with errors
     And The /linked-authorization/authenticate response should contain errorCode property equals to "invalid_request"
 
@@ -77,6 +77,6 @@ Feature: The endpoint to check the correctness of the data.
     Then Receive a response from the /linked-authorization/authenticate endpoint
     And The /linked-authorization/authenticate endpoint response should be returned in a timely manner 15000ms
     And The /linked-authorization/authenticate endpoint response should have status 200
-    And The /linked-authorization/authenticate endpoint response should have content-type: application/json header
+    And The /linked-authorization/authenticate response should have "content-type": "application/json" header
     And The /linked-authorization/authenticate endpoint response should match json schema with errors
     And The /linked-authorization/authenticate response should contain errorCode property equals to "auth_failed"

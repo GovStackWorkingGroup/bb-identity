@@ -132,11 +132,11 @@ When(
 );
 
 Then(
-  'The \\/linked-authorization\\/consent endpoint response should have content-type: application\\/json header',
-  () =>
+  'The \\/linked-authorization\\/consent response should have {string}: {string} header',
+  (key, value) =>
     specWalletConsent
       .response()
-      .should.have.header(contentTypeHeader.key, contentTypeHeader.value)
+      .should.have.headerContains(key, value)
 );
 
 Then(

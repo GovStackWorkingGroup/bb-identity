@@ -69,11 +69,11 @@ Feature: The endpoint to checks the status of link code.
     And The /linked-authorization/link-status response should contain errorCode property equals to "invalid_link_code"
 
   @negative
-  Scenario: Not able to check the status of link code because of the link code connected to a different transaction id
+  Scenario: Not able to check the status of link code because of the linkCode connected to a different transactionId
     Given Wants to check the status of link code
     And The link code is generated
     And The second link code for diffrent transaction id is generated
-    When Send POST /linked-authorization/link-status request with given X-XSRF-TOKEN header, transactionId, link code connected to a different transaction id and requestTime
+    When Send POST /linked-authorization/link-status request with given X-XSRF-TOKEN header, transactionId, linkCode connected to a different transactionId and requestTime
     Then Receive a response from the /linked-authorization/link-status endpoint
     And The /linked-authorization/link-status endpoint response should be returned in a timely manner 25000 ms
     And The /linked-authorization/link-status endpoint response should have status 200

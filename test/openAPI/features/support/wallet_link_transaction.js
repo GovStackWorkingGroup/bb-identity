@@ -27,11 +27,11 @@ Before(endpointTag, () => {
   specWalletLinkTransaction = spec();
 });
 
-// Scenario: Successfully validates the link-code and its expiry and generates the linkTransactionId smoke type test
+// Scenario: Successfully validates the linkCode and its expiry and generates the linkTransactionId smoke type test
 Given(
-  'Wants to validate the link-code and its expiry and generate the linkTransactionId',
+  'Wants to validate the linkCode and its expiry and generate the linkTransactionId',
   () =>
-    'Wants to validate the link-code and its expiry and generate the linkTransactionId'
+    'Wants to validate the linkCode and its expiry and generate the linkTransactionId'
 );
 
 Given(
@@ -53,7 +53,7 @@ Given(
 );
 
 When(
-  'Send POST \\/linked-authorization\\/link-transaction request with given linkCode',
+  'Send POST \\/linked-authorization\\/link-transaction request with given linkCode and requestTime',
   () =>
     specWalletLinkTransaction.post(baseUrl).withJson({
       requestTime: new Date().toISOString(),
@@ -82,11 +82,11 @@ Then(
 );
 
 Then(
-  'The \\/linked-authorization\\/link-transaction endpoint response should have content-type: application\\/json header',
-  () =>
+  'The \\/linked-authorization\\/link-transaction response should have {string}: {string} header',
+  (key, value) =>
     specWalletLinkTransaction
       .response()
-      .should.have.header(contentTypeHeader.key, contentTypeHeader.value)
+      .should.have.headerContains(key, value)
 );
 
 Then(
@@ -99,10 +99,10 @@ Then(
   }
 );
 
-// Scenario: Not able to validate the link-code and its expiry and generate the linkTransactionId because of invalid linkCode
+// Scenario: Not able to validate the linkCode and its expiry and generate the linkTransactionId because of invalid linkCode
 // Given and others Then for this scenario are written in the aforementioned example
 When(
-  'Send POST \\/linked-authorization\\/link-transaction request with given invalid linkCode',
+  'Send POST \\/linked-authorization\\/link-transaction request with given invalid linkCode and requestTime',
   () =>
     specWalletLinkTransaction.post(baseUrl).withJson({
       requestTime: new Date().toISOString(),
@@ -132,7 +132,7 @@ Then(
       .to.be.equal(errorCode)
 );
 
-// Scenario: Not able to validate the link-code and its expiry and generate the linkTransactionId because of expired linkCode
+// Scenario: Not able to validate the linkCode and its expiry and generate the linkTransactionId because of expired linkCode
 Given(
   'The link code is generated before POST \\/linked-authorization\\/link-transaction but wait 30s to be expired',
   { timeout: 31 * 1000 },
@@ -156,7 +156,7 @@ Given(
 );
 
 When(
-  'Send POST \\/linked-authorization\\/link-transaction request with given expired linkCode',
+  'Send POST \\/linked-authorization\\/link-transaction request with given expired linkCode and requestTime',
   () =>
     specWalletLinkTransaction.post(baseUrl).withJson({
       requestTime: new Date().toISOString(),

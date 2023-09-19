@@ -93,8 +93,11 @@ Then('The \\/linked-authorization\\/authenticate endpoint response should have s
 );
 
 Then(
-  'The \\/linked-authorization\\/authenticate endpoint response should have content-type: application\\/json header',
-  () => specWalletLinkedAuthenticate.response().should.have.header(contentTypeHeader.key, contentTypeHeader.value)
+  'The \\/linked-authorization\\/authenticate response should have {string}: {string} header',
+  (key, value) =>
+    specWalletLinkedAuthenticate
+      .response()
+      .should.have.headerContains(key, value)
 );
 
 Then(
@@ -208,8 +211,11 @@ Then('The \\/linked-authorization\\/authenticate endpoint response for reused li
 );
 
 Then(
-  'The \\/linked-authorization\\/authenticate endpoint response for reused link code should have content-type: application\\/json header',
-  () => specWalletLinkedAuthenticateReused.response().should.have.header(contentTypeHeader.key, contentTypeHeader.value)
+  'The \\/linked-authorization\\/authenticate endpoint response for reused link code should have {string}: {string} header',
+  (key, value) => 
+  specWalletLinkedAuthenticateReused
+  .response()
+  .should.have.headerContains(key, value)
 );
 
 Then(

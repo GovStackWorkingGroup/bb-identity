@@ -17,7 +17,7 @@ Feature: The endpoint to send the accepted user claims and permitted scopes.
     Then Receive a response from the /linked-authorization/consent endpoint
     And The /linked-authorization/consent endpoint response should be returned in a timely manner 15000ms
     And The /linked-authorization/consent endpoint response should have status 200
-    And The /linked-authorization/consent endpoint response should have content-type: application/json header
+    And The /linked-authorization/consent response should have "content-type": "application/json" header
     And The /linked-authorization/consent endpoint response should contain linkedTransactionId
     And The /linked-authorization/consent endpoint response should match json schema without errors
 
@@ -28,6 +28,6 @@ Feature: The endpoint to send the accepted user claims and permitted scopes.
     Then Receive a response from the /linked-authorization/consent endpoint
     And The /linked-authorization/consent endpoint response should be returned in a timely manner 15000ms
     And The /linked-authorization/consent endpoint response should have status 200
-    And The /linked-authorization/consent endpoint response should have content-type: application/json header
+    And The /linked-authorization/consent response should have "content-type": "application/json" header
     And The /linked-authorization/consent endpoint response should match json schema
     And The /linked-authorization/consent response should contain errorCode property equals to "invalid_transaction_id"
