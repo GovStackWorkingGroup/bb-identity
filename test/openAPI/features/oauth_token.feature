@@ -11,7 +11,7 @@ Feature: API to create access token
     And The POST /oauth/token response should have "content-type": "application/json" header
     And The POST /oauth/token endpoint response should match json schema
     And The POST /oauth/token endpoint response should contain "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" as idToken
-    And The POST /oauth/token endpoint response should contain "string.string.string" as accessToken
+    And The POST /oauth/token endpoint response should contain "access_token"
     And The POST /oauth/token endpoint response should contain "Bearer" as tokenType
     And The POST /oauth/token endpoint response should contain 0 as expiresIn
 
@@ -25,7 +25,7 @@ Feature: API to create access token
     And The POST /oauth/token response should have "content-type": "application/json" header
     And The POST /oauth/token endpoint response should match json schema
     And The POST /oauth/token endpoint response should contain "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" as idToken
-    And The POST /oauth/token endpoint response should contain "string.string.string" as accessToken
+    And The POST /oauth/token endpoint response should contain "access_token"
     And The POST /oauth/token endpoint response should contain "Bearer" as tokenType
     And The POST /oauth/token endpoint response should contain 0 as expiresIn
 

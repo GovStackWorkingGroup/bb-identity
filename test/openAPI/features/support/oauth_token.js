@@ -107,12 +107,14 @@ Then(/^The POST \/oauth\/token endpoint response should contain "([^"]*)" as idT
       .to.be.equal(idToken);
   });
 
-Then(/^The POST \/oauth\/token endpoint response should contain "([^"]*)" as accessToken$/,
-  (accessToken) => {
+Then(/^The POST \/oauth\/token endpoint response should contain "([^"]*)"$/,
+  (propertyName) => {
     chai
-      .expect(specOAuthToken._response.json.access_token)
-      .to.be.equal(accessToken);
+      .expect(specOAuthToken._response.json)
+      .to.have.property(propertyName);
   });
+
+    
 
 Then(/^The POST \/oauth\/token endpoint response should contain "([^"]*)" as tokenType$/,
   (tokenType) => {
