@@ -114,8 +114,6 @@ Then(/^The POST \/oauth\/token endpoint response should contain "([^"]*)"$/,
       .to.have.property(propertyName);
   });
 
-    
-
 Then(/^The POST \/oauth\/token endpoint response should contain "([^"]*)" as tokenType$/,
   (tokenType) => {
     chai
