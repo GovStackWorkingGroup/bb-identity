@@ -9,6 +9,7 @@ const {
   contentTypeHeader,
   clientResponseSchema,
 } = require('./helpers/helpers');
+const { generateUniqueKey, baseKey } = require('./helpers/utils');
 
 chai.use(require('chai-json-schema'));
 
@@ -41,7 +42,7 @@ Given(
         clientName: 'Health Service',
         relyingPartyId: 'bharath-gov',
         logoUri: 'http://example.com',
-        publicKey: {},
+        publicKey: generateUniqueKey(baseKey, "-test0"),
         authContextRefs: ['idbb:acr:generated-code'],
         userClaims: ['name'],
         grantTypes: ['authorization_code'],
@@ -54,7 +55,7 @@ Given(
 );
 
 When(
-  'User sends PUT request with given {string} as client_id parameter, requestTime, {string} as clientName, {string} as status, {string} as logoUri, {string} as redirectUris, {string} as userClaims, {string} as authContextRefs, {string} as grantTypes, {string} as clientAuthMethods',
+  'User sends PUT request with given {string} as client_id parameter, requestTime, {string} as clientName, {string} as status, {string} as logoUri, publicKey, {string} as redirectUris, {string} as userClaims, {string} as authContextRefs, {string} as grantTypes, {string} as clientAuthMethods',
   (
     client_id,
     clientName,
@@ -75,6 +76,7 @@ When(
           clientName: clientName,
           status: status,
           logoUri: logoUri,
+          publicKey: generateUniqueKey(baseKey, "-test1"),
           redirectUris: [redirectUris],
           userClaims: [userClaims],
           authContextRefs: [authContextRefs],
@@ -148,6 +150,7 @@ When(
           status: 'active',
           logoUri: 'http://example.com',
           redirectUris: ['http://example-redirect.com'],
+          publicKey: generateUniqueKey(baseKey, "-test2"),
           userClaims: ['name'],
           authContextRefs: ['idbb:acr:generated-code'],
           grantTypes: ['authorization_code'],
@@ -190,6 +193,7 @@ When(
           clientName: 'Health Service',
           status: 'active',
           logoUri: 'http://example.com',
+          publicKey: generateUniqueKey(baseKey, "-test3"),
           redirectUris: ['http://example-redirect.com'],
           userClaims: ['name'],
           authContextRefs: ['idbb:acr:generated-code'],
@@ -213,6 +217,7 @@ When(
           clientName: 'Health Service',
           status: 'active',
           logoUri: 'http://example.com',
+          publicKey: generateUniqueKey(baseKey, "-test4"),
           redirectUris: ['http://example-redirect.com'],
           userClaims: [userClaims],
           authContextRefs: ['idbb:acr:generated-code'],
@@ -236,6 +241,7 @@ When(
           clientName: 'Health Service',
           status: 'active',
           logoUri: 'http://example.com',
+          publicKey: generateUniqueKey(baseKey, "-test5"),
           redirectUris: ['http://example-redirect.com'],
           userClaims: ['name'],
           authContextRefs: [authContextRefs],
@@ -259,6 +265,7 @@ When(
           clientName: 'Health Service',
           status: 'active',
           logoUri: 'http://example.com',
+          publicKey: generateUniqueKey(baseKey, "-test6"),
           redirectUris: [redirectUri],
           userClaims: ['name'],
           authContextRefs: ['idbb:acr:generated-code'],
@@ -282,6 +289,7 @@ When(
           clientName: 'Health Service',
           status: 'active',
           logoUri: logoUri,
+          publicKey: generateUniqueKey(baseKey, "-test7"),
           redirectUris: ['http://example-redirect.com'],
           userClaims: ['name'],
           authContextRefs: ['idbb:acr:generated-code'],
@@ -305,6 +313,7 @@ When(
           clientName: clientName,
           status: 'active',
           logoUri: 'http://example.com',
+          publicKey: generateUniqueKey(baseKey, "-test8"),
           redirectUris: ['http://example-redirect.com'],
           userClaims: ['name'],
           authContextRefs: ['idbb:acr:generated-code'],
@@ -328,6 +337,7 @@ When(
           clientName: 'Health Service',
           status: 'active',
           logoUri: 'http://example.com',
+          publicKey: generateUniqueKey(baseKey, "-test9"),
           redirectUris: ['http://example-redirect.com'],
           userClaims: ['name'],
           authContextRefs: ['idbb:acr:generated-code'],

@@ -1,6 +1,6 @@
 {
   "uuid": "256918d8-70c9-4e45-ad37-a6cb1a3f39f7",
-  "lastMigration": 27,
+  "lastMigration": 28,
   "name": "BB-Identity",
   "endpointPrefix": "",
   "latency": 0,
@@ -111,7 +111,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         },
         {
           "uuid": "5b5025eb-a4ca-4a4f-b0ee-3b7e866eb071",
@@ -141,7 +142,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "ced4ac69-586c-4de8-9a68-e69bb211cc08",
@@ -171,7 +173,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "e0c2302f-b052-4d47-bd18-40d5af822ab1",
@@ -201,7 +204,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "704d8a1a-8517-4d16-aa10-13cf76758be3",
@@ -231,7 +235,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "f331b6df-0f53-4dad-931c-cfde3854dea2",
@@ -261,7 +266,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "6a9cad88-8010-4bc7-95b6-8bfeabc8f4f8",
@@ -291,7 +297,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "86136758-01a8-402f-8897-3d647c305c20",
@@ -321,7 +328,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "bf45f01a-d052-430c-8a88-ea4524b29f69",
@@ -350,9 +358,9 @@
             {
               "target": "params",
               "modifier": "client_id",
-              "value": "e-health-service",
+              "value": "^e-health-service.*",
               "invert": true,
-              "operator": "equals"
+              "operator": "regex"
             },
             {
               "target": "params",
@@ -365,7 +373,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
@@ -450,7 +459,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
@@ -525,7 +535,7 @@
             {
               "target": "body",
               "modifier": "request.publicKey",
-              "value": "^([a-zA-Z0-9_=]+)([a-zA-Z0-9_=]+)([a-zA-Z0-9_\\-\\+\\/=]*)",
+              "value": "^\\{.*\"kty\":\"RSA\".*\\}$",
               "invert": false,
               "operator": "regex"
             },
@@ -568,7 +578,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         },
         {
           "uuid": "03b23315-afa8-48cc-87a1-6d8630c0cea8",
@@ -590,7 +601,7 @@
             {
               "target": "body",
               "modifier": "request.publicKey",
-              "value": "^([a-zA-Z0-9_=]+)([a-zA-Z0-9_=]+)([a-zA-Z0-9_\\-\\+\\/=]*)",
+              "value": "^\\{.*\"kty\":\"RSA\".*\\}$",
               "invert": true,
               "operator": "regex"
             }
@@ -598,7 +609,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "468fc7ee-0274-4d38-8972-b54f6f4d74c0",
@@ -620,7 +632,7 @@
             {
               "target": "body",
               "modifier": "request.publicKey",
-              "value": "^([a-zA-Z0-9_=]+)([a-zA-Z0-9_=]+)([a-zA-Z0-9_\\-\\+\\/=]*)",
+              "value": "^\\{.*\"kty\":\"RSA\".*\\}$",
               "invert": true,
               "operator": "regex"
             }
@@ -628,7 +640,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "12c0867b-96ff-49e9-a990-a33757dd29d3",
@@ -658,7 +671,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "d28c8c16-0ecc-4632-84ad-7c91b157f7b5",
@@ -688,7 +702,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "1ea64ae0-7339-480d-9410-b2d23c05341e",
@@ -725,7 +740,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "5b12b1cf-c4a7-4056-8758-d18165cdcc0d",
@@ -762,7 +778,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "36870a8b-e550-4cc1-9f01-a335a19c79f9",
@@ -799,7 +816,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "0cd71796-8114-43c7-8434-084f9115a056",
@@ -836,7 +854,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "976858a2-b81b-4b0d-92dc-c6ebc508270f",
@@ -873,7 +892,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "1594eecf-78eb-40eb-ab33-8e7e0e2a19cb",
@@ -910,7 +930,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "9d88d26b-4db0-450b-86b8-b6b183f44af3",
@@ -947,7 +968,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "44e3a0d2-dc37-4d97-a8dd-3b996fa3d7e7",
@@ -984,7 +1006,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "7d8f0305-baba-476e-8906-a001b862c0af",
@@ -1021,7 +1044,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
@@ -1077,7 +1101,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         },
         {
           "uuid": "0334052c-1a00-4c40-a21e-cdd38240590b",
@@ -1116,7 +1141,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "e23f3b59-f201-4650-b63a-4b691806946c",
@@ -1155,7 +1181,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "13129174-8b5a-4d01-8aac-8b1d154c069a",
@@ -1194,7 +1221,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "132c3dd1-e861-4a1d-af2f-3c0c3c2e421d",
@@ -1233,7 +1261,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "3181a1d5-4546-4546-ac52-3e60a0ca944d",
@@ -1272,7 +1301,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "9732a06f-6433-4446-9be1-b66135e2a29b",
@@ -1311,7 +1341,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "11375743-5be8-47a6-9fa1-2d99dd7e23b4",
@@ -1350,7 +1381,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "d41ab616-f897-4b38-bfce-a82c3ac78ed8",
@@ -1375,7 +1407,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
@@ -1389,7 +1422,7 @@
       "responses": [
         {
           "uuid": "a30c589f-e696-4472-96fa-0050decf17c7",
-          "body": "{\n  \"keys\": [\n    {{#repeat 4}}\n    {\n      \"kid\": \"{{faker 'random.alpha' 5}}\",\n      \"use\": \"sig\",\n      \"kty\": \"RSA\",\n      \"e\": \"string\",\n      \"n\": \"string\",\n      \"x5t#S256\": \"string\",\n      \"x5c\": \"string\",\n      \"exp\": \"string\"\n    }\n    {{/repeat}}\n  ]\n}",
+          "body": "{\n  \"keys\": [\n    {{#repeat 4}}\n    {\n      \"kid\": \"{{faker 'random.alpha' 5}}\",\n      \"use\": \"sig\",\n      \"kty\": \"RSA\",\n      \"e\": \"string\",\n      \"n\": \"string\",\n      \"x5t#S256\": \"string\",\n      \"x5c\": [\"string\"],\n      \"exp\": \"string\"\n    }\n    {{/repeat}}\n  ]\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "Retrieved public key set in the JWKS format",
@@ -1402,7 +1435,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
@@ -1430,7 +1464,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
@@ -1479,7 +1514,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         },
         {
           "uuid": "18707c70-5ac6-4243-9d28-0ca050e128fb",
@@ -1516,7 +1552,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "4cf2ff9a-43e4-45ec-8dda-13b6d61a2760",
@@ -1553,7 +1590,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "255b7fd3-65d5-4262-8fee-c88ce05f986d",
@@ -1590,7 +1628,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
@@ -1652,7 +1691,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         },
         {
           "uuid": "f2502fb2-9789-488b-9026-7177fd71ebe2",
@@ -1703,7 +1743,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "ad887cb0-8f86-414f-b6cf-1c0aa79f8673",
@@ -1754,7 +1795,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "57af2a86-cd6b-4b72-b6f5-e07ff63549eb",
@@ -1779,7 +1821,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "9cb8a231-62c8-4d13-afef-b150e0b67578",
@@ -1837,7 +1880,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "e002bcb5-f015-4b12-ac5c-84031e48b9f0",
@@ -1888,7 +1932,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
@@ -1950,7 +1995,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         },
         {
           "uuid": "dde1df64-be08-48d3-89a8-db8aad9cf785",
@@ -2008,7 +2054,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "6e4ee8a0-a076-4007-9d70-fe6537373b31",
@@ -2059,7 +2106,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "56cd107f-fc24-4052-a0fe-40432bed09aa",
@@ -2110,7 +2158,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "06c278bb-602e-48c0-8d76-02fb38e059ae",
@@ -2161,7 +2210,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "fdbfd5b7-fa3d-493a-8aa9-bae5067cf436",
@@ -2212,7 +2262,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "76994875-a29a-4ba6-b76e-7b3ca7b48c21",
@@ -2263,7 +2314,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
@@ -2284,7 +2336,7 @@
           "headers": [
             {
               "key": "Content-Type",
-              "value": "application/json"
+              "value": "application/json;"
             },
             {
               "key": "Cache-Control",
@@ -2293,6 +2345,10 @@
             {
               "key": "Pragma",
               "value": "no-cache"
+            },
+            {
+              "key": "Accept",
+              "value": "application/json;"
             }
           ],
           "bodyType": "INLINE",
@@ -2346,7 +2402,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "33e4b39e-1394-477e-af92-b787b3398bf4",
@@ -2383,7 +2440,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "7b2c9922-a21c-4c5a-9744-d1cdfbf63bd6",
@@ -2420,7 +2478,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "de6728ab-0e67-4747-9974-613bf9c625ad",
@@ -2465,7 +2524,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "b4ed8616-a68a-4559-ae00-67fb92a0157b",
@@ -2530,7 +2590,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         },
         {
           "uuid": "b4c73209-405e-4410-a31f-3ae44d8b8e20",
@@ -2595,7 +2656,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
@@ -2639,7 +2701,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "c183981f-fd34-4a0a-a603-85334bb6ab91",
@@ -2685,7 +2748,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         },
         {
           "uuid": "32712fe4-c71c-46ed-b93d-8b3dbdb9e5f3",
@@ -2731,7 +2795,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "385d72bd-96f5-4263-9efc-e2d1a94335c8",
@@ -2756,7 +2821,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "c729f372-adaa-4930-baaa-52e0e37e1500",
@@ -2781,7 +2847,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "2dfb7758-1c2b-4947-8940-25ef99af0b16",
@@ -2813,7 +2880,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "3c6891e0-3431-4375-86f0-6523cd2d0a1e",
@@ -2845,7 +2913,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "569ced04-3966-4e79-b6f5-a3e38f990437",
@@ -2862,7 +2931,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "1bd31ad3-5c6d-4e90-89df-6433fde1760c",
@@ -2879,7 +2949,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
@@ -2920,7 +2991,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "9d3cfad3-8697-4f8d-b685-88f06f12f1cc",
@@ -2977,15 +3049,23 @@
             {
               "target": "body",
               "modifier": "request.publicKey",
-              "value": "^([a-zA-Z0-9_=]+)([a-zA-Z0-9_=]+)([a-zA-Z0-9_\\\\-\\\\+\\\\/=]*)",
+              "value": "^\\{.*\"kty\":\"RSA\".*\\}$",
               "invert": false,
+              "operator": "regex"
+            },
+            {
+              "target": "body",
+              "modifier": "request.challengeList[0].challenge",
+              "value": "^\\s*$",
+              "invert": true,
               "operator": "regex"
             }
           ],
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         },
         {
           "uuid": "c47d087b-0485-46b6-8e52-043eefe0ccec",
@@ -3028,7 +3108,7 @@
             {
               "target": "body",
               "modifier": "request.format",
-              "value": "[A-Za-z]+-[A-Za-z]+",
+              "value": "",
               "invert": false,
               "operator": "regex"
             },
@@ -3050,7 +3130,8 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         },
         {
           "uuid": "fc19815f-ab7d-4972-ae2e-e6c7b79c1ec1",
@@ -3107,7 +3188,7 @@
             {
               "target": "body",
               "modifier": "request.publicKey",
-              "value": "^([a-zA-Z0-9_=]+)([a-zA-Z0-9_=]+)([a-zA-Z0-9_\\\\-\\\\+\\\\/=]*)",
+              "value": "^\\{.*\"kty\":\"RSA\".*\\}$",
               "invert": true,
               "operator": "regex"
             }
@@ -3115,7 +3196,39 @@
           "rulesOperator": "AND",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "788bc7b1-7742-443a-80e2-922d382ec704",
+          "body": "{\n  \"responseTime\": \"string\",\n  \"response\": {\n    \"walletUserId\": \"string\",\n    \"certificate\": \"string\",\n    \"expireDateTime\": \"2023-07-21T12:34:56Z\"\n  },\n  \"errors\": [\n    {\n      \"errorCode\": \"invalid_auth_challenge\",\n      \"errorMessage\": \"string\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Invalid Auth Challenge",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "request.challengeList[0].challenge",
+              "value": "^\\s*$",
+              "invert": false,
+              "operator": "regex"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
@@ -3156,7 +3269,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         },
         {
           "uuid": "b1b8269c-1963-4f97-b06c-debe5541ea8c",
@@ -3186,7 +3300,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "crudKey": "id"
         }
       ],
       "enabled": true,
@@ -3219,7 +3334,8 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "crudKey": "id"
         }
       ],
       "enabled": true,

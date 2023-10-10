@@ -4,14 +4,14 @@ Feature: API to update existing Open ID Connect (OIDC) client.
   @smoke @unit @positive
   Scenario: The client profile is successfully updated in the Open ID Connect (OIDC) smoke type test
     Given The user wants to update the client profile in the Open ID Connect (OIDC)
-    And The client profile with "e-health-service" as clientId is created
-    When User sends PUT request with given "e-health-service" as client_id parameter, requestTime, "Health Service" as clientName, "active" as status, "http://example.com" as logoUri, "http://example-redirect.com" as redirectUris, "name" as userClaims, "idbb:acr:generated-code" as authContextRefs, "authorization_code" as grantTypes, "private_key_jwt" as clientAuthMethods
+    And The client profile with "e-health-service-00" as clientId is created
+    When User sends PUT request with given "e-health-service-00" as client_id parameter, requestTime, "Health Service" as clientName, "active" as status, "http://example.com" as logoUri, publicKey, "http://example-redirect.com" as redirectUris, "name" as userClaims, "idbb:acr:generated-code" as authContextRefs, "authorization_code" as grantTypes, "private_key_jwt" as clientAuthMethods
     Then User receives a response from the PUT /client-mgmt/oidc-client/{client_id} endpoint
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should be returned in a timely manner 15000ms
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should have status 200
     And The PUT /client-mgmt/oidc-client/{client_id} response should have "content-type": "application/json" header
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should match json schema
-    And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should contain "e-health-service" as clientId
+    And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should contain "e-health-service-00" as clientId
     And The PUT /client-mgmt/oidc-client/{client_id} endpoint response should contain empty errors array
 
   @unit @negative

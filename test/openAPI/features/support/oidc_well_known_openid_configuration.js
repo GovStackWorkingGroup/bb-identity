@@ -5,14 +5,14 @@ const {
   localhost,
   contentTypeHeader,
   defaultResponseTime,
-  oidcWellKnownOpenidConfigurationEndpoint,
+  wellKnownOpenidConfigurationEndpoint,
   oidcWellKnownOpenidConfigurationSchema,
 } = require('../support/helpers/helpers');
 
 chai.use(require('chai-json-schema'));
 
-const baseUrl = localhost + oidcWellKnownOpenidConfigurationEndpoint;
-const endpointTag = { tags: `@endpoint=/${oidcWellKnownOpenidConfigurationEndpoint}` };
+const baseUrl = localhost + wellKnownOpenidConfigurationEndpoint;
+const endpointTag = { tags: `@endpoint=/${wellKnownOpenidConfigurationEndpoint}` };
 
 let specOpenidConfiguration;
 

@@ -26,7 +26,7 @@ module.exports = {
   },
   individualId: '05a5eecd-8b70-480d-9662-b2e63e4bafdb',
   // oidc_well_openid_configuration
-  oidcWellKnownOpenidConfigurationEndpoint: '.well-known/openid-configuration',
+  wellKnownOpenidConfigurationEndpoint: '.well-known/openid-configuration',
   oidcWellKnownOpenidConfigurationSchema: {
     type: 'object',
     properties: {
@@ -131,7 +131,12 @@ module.exports = {
               e: { type: 'string' },
               n: { type: 'string' },
               'x5t#S256': { type: 'string' },
-              x5c: { type: 'string' },
+              x5c: {
+                type: 'array',
+                items: {
+                    type: 'string'
+                }
+            },
               exp: { type: 'string' },
             },
             required: ['kid', 'use', 'kty', 'e', 'n', 'x5t#S256', 'x5c', 'exp'],

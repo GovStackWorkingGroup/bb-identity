@@ -8,32 +8,13 @@ const {
   walletBindingResponseSchema,
   contentTypeHeader,
 } = require('./helpers/helpers');
+const { generateUniqueKey, baseKey } = require('./helpers/utils');
 
 chai.use(require('chai-json-schema'));
 
 let specWalletBinding;
 let specWalletBindingDuplicate;
 let providedAuthFactorType;
-const publicKeyOne = JSON.stringify({
-  kty: 'RSA',
-  a: 'AQAB',
-  use: 'sig',
-  alg: 'RS256',
-  n: 'mykWIftknK1TQmbiazuik0rWGsxeOIUE3yfSQJgoCfdGXY4HfHE6AlNKFdIKZOXe-U-L21Klj692e9iZx05rHHaZvO0a4IzyFMOyw5wjBCWoBOcA4q93LPkZTSkIq9I2Vgr6Bzwu6X7QPMbmF8xAKX4KeSn_yZcsAhElHBOWkENmKp76yCyTeE4DAIGah1BcgiB_KWvOZOedwTRDLyQ0DZM1z07-N-rPh0qSd2UFRRY-b_jc9opjyRQq3d5ZkiB9W4ReAUhIKA9uc1RDs1shc3G8zgZp3qH6fYWmsOi23BOA_q8Z-wMHwPK2vEJvgZIWovAG5jGFbMilNcFQfzLJcQ',
-});
-
-const publicKeyTwo = JSON.stringify({
-  kty: 'RSA',
-  a: 'AQAB',
-  use: 'sig',
-  alg: 'RS256',
-  n: 'VFUiPhpONKm54WyhTgQJ1ONENwX1X6nR4qyNWAODKFXsYG20EZtJwLyuuL35D1oBmLHhQY9zdWVZZVy5r8uJ3ueb0pfl8ZqO5BNvgeoDM6dextpI6sntQCUcRuERB7oC9FrrWPYkKO9lFQfrJFRhmDtN4XviEpJAXW5Lpx0iNXJnXNrFZOcKrfQfAWPxBrIFPMJRBy6giM1RJAjwjHQ8ULOWGRpoIOGyQy2IOWKG6f0UrFaO9qUImBR82aPumSAuJaslRFThM4n6AJFrrhBT5nAgS6jPf9D48NYkXRroJnTlJqm7kVgfOMjPKgQ7T9JsJ9MTpV5keTQSwE2GHZNa1P',
-});
-
-const base64ToJson = (publicKey) => {
-  JSON.parse(publicKey);
-  return Buffer.from(publicKey).toString('base64');
-};
 
 const baseUrl = localhost + walletBindingEndpoint;
 const endpointTag = { tags: `@endpoint=/${walletBindingEndpoint}` };
@@ -46,6 +27,14 @@ Before(endpointTag, () => {
 // Scenario: Successfully validates the wallet and generates the wallet user id smoke type test
 Given('Wants to validate the wallet and generate wallet user id',
     () => 'Wants to validate the wallet and generate wallet user id');
+
+Given(/^The request headers contain "([^"]*)" and "([^"]*)"$/,
+(partnerId, partnerApiKey) => {
+  specWalletBinding.withHeaders({
+    "PARTNER-ID": partnerId,
+    "PARTNER-API-KEY": partnerApiKey
+  });
+});
 
 When(
     /^Send POST \/wallet\-binding request with given "([^"]*)" as individualId and "([^"]*)" as authFactorType and "([^"]*)" as format and "([^"]*)" as challenge and requestTime and publicKey$/,
@@ -65,7 +54,7 @@ When(
                   format: format,
                 }
               ],
-              publicKey: base64ToJson(publicKeyOne),
+              publicKey: generateUniqueKey(baseKey, "-test1"),
             },
           })
 
@@ -144,7 +133,7 @@ When(
                     format: format,
                   }
                 ],
-                publicKey: base64ToJson(publicKeyOne),
+                publicKey: generateUniqueKey(baseKey, "-test2"),
               },
             })
 );
@@ -191,7 +180,7 @@ When(
               format: format,
             }
           ],
-          publicKey: publicKeyOne,
+          publicKey: "string",
         },
       })
 );
@@ -216,7 +205,7 @@ When(
                 format: format,
               }
             ],
-            publicKey: base64ToJson(publicKeyTwo),
+            publicKey: "eyJrdHkiOiJSU0EiLCJhIjoiQVFBQiIsInVzZSI6InNpZyIsImFsZyI6IlJTMjU2IiwibiI6IlZGVWlQaHBPTkttNTRXeWhUZ1FKMU9ORU53WDFYNm5SNHF5TldBT0RLRlhzWUcyMEVadEp3THl1dUwzNUQxb0JtTEhoUVk5emRXVlpaVnk1cjh1SjN1ZWIwcGZsOFpxTzVCTnZnZW9ETTZkZXh0cEk2c250UUNVY1J1RVJCN29DOUZycldQWWtLTzlsRlFmckpGUmhtRHRONFh2aUVwSkFYVzVMcHgwaU5YSm5YTnJGWk9jS3JmUWZBV1B4QnJJRlBNSlJCeTZnaU0xUkpBandqSFE4VUxPV0dScG9JT0d5UXkySU9XS0c2ZjBVckZhTzlxVUltQlI4MmFQdW1TQXVKYXNsUkZUaE00bjZBSkZycmhCVDVuQWdTNmpQZjlENDhOWWtYUnJvSm5UbEpxbTdrVmdmT01qUEtnUTdUOUpzSjlNVHBWNWtlVFFTd0UyR0haTmExUCJ9",
           },
         })
 
@@ -239,7 +228,7 @@ When (/^Send POST \/wallet-binding request with the same public key as in the pr
                 format: 'encoded-json',
               }
             ],
-          publicKey: base64ToJson(publicKeyTwo),
+            publicKey: generateUniqueKey(baseKey, "-test3"),
         },
       })
 })
