@@ -3035,7 +3035,7 @@
             {
               "target": "body",
               "modifier": "request.format",
-              "value": "^[A-Za-z0-9]+-[A-Za-z0-9]+$",
+              "value": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)?$",
               "invert": false,
               "operator": "regex"
             },

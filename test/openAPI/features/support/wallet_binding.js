@@ -15,13 +15,14 @@ chai.use(require('chai-json-schema'));
 let specWalletBinding;
 let specWalletBindingDuplicate;
 let providedAuthFactorType;
-
+let specBindingOtp;
 const baseUrl = localhost + walletBindingEndpoint;
 const endpointTag = { tags: `@endpoint=/${walletBindingEndpoint}` };
 
 Before(endpointTag, () => {
   specWalletBinding = spec();
   specWalletBindingDuplicate = spec();
+  specBindingOtp = spec();
 });
 
 // Scenario: Successfully validates the wallet and generates the wallet user id smoke type test
@@ -34,6 +35,21 @@ Given(/^The request headers contain "([^"]*)" and "([^"]*)"$/,
     "PARTNER-ID": partnerId,
     "PARTNER-API-KEY": partnerApiKey
   });
+});
+
+Given(/^Sends a POST request to \/binding-otp and receives a successful response$/, () => {
+  specBindingOtp
+      .post(`${localhost}/binding-otp`) 
+      .returns({
+          status: 200,
+          headers: {
+              "content-type": "application/json"
+          },
+          response: {
+              otp: "123456"
+          }
+      })
+      .toss();
 });
 
 When(

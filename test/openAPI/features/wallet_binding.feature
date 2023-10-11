@@ -2,10 +2,11 @@
 Feature: The endpoint to validate wallet create wallet user id
 
   @smoke @unit @positive
-  Scenario: Successfully validates the wallet and generates the wallet user id smoke type test
+  Scenario Outline: Successfully validates the wallet and generates the wallet user id smoke type test
     Given Wants to validate the wallet and generate wallet user id
     And The request headers contain "PARTNER-ID" and "PARTNER-API-KEY"
-    When Send POST /wallet-binding request with given "n3fy2qkg9r7h2" as individualId and "OTP" as authFactorType and "encoded-json" as format and "string" as challenge and requestTime and publicKey
+    And Sends a POST request to /binding-otp and receives a successful response
+    When Send POST /wallet-binding request with given "<individualId>" as individualId and "<authFactorType>" as authFactorType and "<format>" as format and "<challenge>" as challenge and requestTime and publicKey
     Then Receive a response from the /wallet-binding endpoint
     And The /wallet-binding response should be returned in a timely manner 15000ms
     And The /wallet-binding endpoint response should have status 200
@@ -14,10 +15,18 @@ Feature: The endpoint to validate wallet create wallet user id
     And The /wallet-binding endpoint response should have authFactorType value should be equal to specified enum
     And The /wallet-binding endpoint response should contain a future expireDateTime in ISO 8601 format
 
+    Examples:
+      | individualId | authFactorType | format         | challenge |
+      | n3fy2qkg9r7h2 | OTP           | alpha-numeric  | challenge1 |
+      | n3fy2qkg9r7h3 | OTP           | jwt            | challenge2 |
+      | n3fy2qkg9r7h4 | OTP           | encoded-json   | challenge3 |
+      | n3fy2qkg9r7h5 | OTP           | number         | challenge4 |
+
   @negative
   Scenario: Not able to generate the wallet binding because of unsupported challenge format
     Given Wants to validate the wallet and generate wallet user id
     And The request headers contain "PARTNER-ID" and "PARTNER-API-KEY"
+    And Sends a POST request to /binding-otp and receives a successful response
     When Send POST /wallet-binding request with given invalid format "n3fy2qkg9r7h2" as individualId and "OTP" as authFactorType and "invalid_format" as format and "string" as challenge and requestTime and publicKey
     Then Receive a response from the /wallet-binding endpoint
     And The /wallet-binding response should be returned in a timely manner 15000ms
@@ -30,6 +39,7 @@ Feature: The endpoint to validate wallet create wallet user id
   Scenario: Not able to generate the wallet binding because of invalid public key
     Given Wants to validate the wallet and generate wallet user id
     And The request headers contain "PARTNER-ID" and "PARTNER-API-KEY"
+    And Sends a POST request to /binding-otp and receives a successful response
     When Send POST /wallet-binding request with given format "n3fy2qkg9r7h2" as individualId and "OTP" as authFactorType and "encoded-json" as format and "string" as challenge and requestTime and invalid publicKey
     Then Receive a response from the /wallet-binding endpoint
     And The /wallet-binding response should be returned in a timely manner 15000ms
@@ -42,6 +52,7 @@ Feature: The endpoint to validate wallet create wallet user id
   Scenario: Not able to generate the wallet binding because of duplicated public key
     Given Wants to validate the wallet and generate wallet user id
     And The request headers contain "PARTNER-ID" and "PARTNER-API-KEY"
+    And Sends a POST request to /binding-otp and receives a successful response
     When Send POST /wallet-binding request with given "n3fy2qkg9r7h2" as individualId and "OTP" as authFactorType and "encoded-json" as format and "string" as challenge and requestTime and duplicated publicKey
     Then Receive a response from the /wallet-binding endpoint
     When Send POST /wallet-binding request with the same public key as in the previous request
@@ -56,6 +67,7 @@ Feature: The endpoint to validate wallet create wallet user id
   Scenario: Not able to generate the wallet binding because of invalid auth challenge
     Given Wants to validate the wallet and generate wallet user id
     And The request headers contain "PARTNER-ID" and "PARTNER-API-KEY"
+    And Sends a POST request to /binding-otp and receives a successful response
     When Send POST /wallet-binding request with given "n3fy2qkg9r7h2" as individualId and "OTP" as authFactorType and "encoded-json" as format and "" as challenge and requestTime and publicKey
     Then Receive a response from the /wallet-binding endpoint
     And The /wallet-binding response should be returned in a timely manner 15000ms

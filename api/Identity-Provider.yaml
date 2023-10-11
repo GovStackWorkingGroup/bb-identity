@@ -1343,7 +1343,19 @@ paths:
         3. Binded walletUserId (WUID) is returned with IDBB signed certificate. 
 
         **Note**: Binding entry uniqueness is combination of these 3 values -> (PSUT, public-key, auth-factor-type)
-      parameters: []
+      parameters:
+        - name: PARTNER-ID
+          in: header
+          required: true
+          description: An identifier for the partner.
+          schema:
+            type: string
+        - name: PARTNER-API-KEY
+          in: header
+          required: true
+          description: An API key provided to the partner for authentication purposes.
+          schema:
+            type: string
       security:
         - Authorization-wallet_binding: []
       tags:
