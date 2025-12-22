@@ -39,5 +39,3 @@ The Identity Building Block may work with the Consent Building Block to implemen
 ## 5.3 Trust Framework
 
 Trust Frameworks can be considered a mechanism to enable the trusted exchange of information between sovereign partners. The Trust Framework is a much-discussed concept and this will be a consideration of the ID related working group across all GovStack ID related BBs in a future release.
-
-##

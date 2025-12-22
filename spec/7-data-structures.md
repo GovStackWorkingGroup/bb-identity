@@ -6,8 +6,6 @@ description: >-
 
 # 7 Data Structures
 
-##
-
 ## 7.1 Resource Model
 
 ![](.gitbook/assets/spaces_8B7scSfa9NpeR1BmaFM2_uploads_git-blob-d1540ab89d23e8fffeb8c1b6c2ab86116dde9d76_image4.png)
