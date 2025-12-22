@@ -21,7 +21,7 @@ See also related terminology for [Digital Credential](id-related-bb-common-termi
 
 ### Digital Credentials <a href="#digital-credential" id="digital-credential"></a>
 
-A Digital Credential (also known as a verifiable credential) is a digitally-issued and verifiable form of a claim or a set of claims made by a (single) issuer. Digital Credentials can be shared, verified, and stored securely offering advantages over physical equivalents. Digital Credentials are often cryptographically verifiable meaning their authenticity can be easily checked by Verifiers.See also related terminology for Credential and Verifiable Credentials.
+A Digital Credential (also known as a verifiable credential) is a digitally-issued and verifiable form of a [Credential](id-related-bb-common-terminology.md#credential).
 
 {% hint style="info" %}
 See also related terminology for [Credential ](id-related-bb-common-terminology.md#credential)and [Verifiable Credentials](id-related-bb-common-terminology.md#verifiable-credentials-vcs).
@@ -57,7 +57,7 @@ The confidence of one party or entity that another party or entity will behave i
 
 ### **Verifiable Credentials (VCs)** <a href="#verifiable-credentials-vcs" id="verifiable-credentials-vcs"></a>
 
-Verifiable credentials are digital statements that attest to the truth of certain claims. They are issued, held, and presented in a secure and privacy-preserving manner.See also related terminology for Credential and Digital Credential.
+A Verifiable Credential (also known as a digital credential) is a digitally-issued and verifiable form of a [Credential](id-related-bb-common-terminology.md#credential).
 
 {% hint style="info" %}
 See also related terminology for [Credential](id-related-bb-common-terminology.md#credential) and [Digital Credentials](id-related-bb-common-terminology.md#digital-credential).
