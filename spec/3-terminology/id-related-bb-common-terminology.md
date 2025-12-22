@@ -43,7 +43,11 @@ is an organisation (public or private) ​that has the rights and obligations to
 
 ### **PII (Personally Identifiable Information)** <a href="#pii-personally-identifiable-information" id="pii-personally-identifiable-information"></a>
 
-PII refers to any information that can be used to identify a specific individual, such as names, addresses, social security numbers, or biometric data.
+PII refers to any information:\
+a) that identifies or can be used to identify, contact or locate the person to whom such information pertains;\
+b) from which identification or contact information of an individual person can be derived; or\
+c) that is or can be linked to a natural person directly or indirectly.\
+([ITU-T X.1252](https://www.itu.int/rec/T-REC-X.1252))
 
 ### Trust
 
