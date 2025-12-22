@@ -11,7 +11,7 @@ The results presented here benefit from publicly available sources that are refe
 
 For this purpose, the team is suggesting the following already available and recognized open standard providers:
 
-* Federation protocol: [Open ID Connect](https://openid.net/specs/openid-connect-federation-1\_0.html).
+* Federation protocol: [Open ID Connect](https://openid.net/specs/openid-connect-federation-1_0.html).
 * Image format for biometric data: [ISO-19794](https://www.iso.org/standard/50867.html).
 * Verifiable credentials (to be covered in the next iteration of this document in more detail): World Wide Web Consortium ([W3C](https://www.w3.org/TR/2022/REC-vc-data-model-20220303/)).
 * [ISO/IEC 24760](https://www.iso.org/standard/77582.html)
