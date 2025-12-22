@@ -19,9 +19,9 @@ The tests for the Identity Building Block can be found in [this GitHub repositor
 * The microservice interfaces are defined as per [OPENAPI Ver3.0 standards](https://swagger.io/specification/).
 * For implementation purposes, it is suggested to refer [TMF630\_REST\_API\_Design\_Guidelines](https://www.tmforum.org/resources/standard/tmf630-rest-api-design-guidelines-4-2-0/).
 
-## 8.1 Identity Usage
+## 8.1 Identity Verification
 
-The Identity usage APIs are a set of OpenAPI specifications exposed by the Identity Building Block to other building blocks and applications for user verification.
+The Identity Verification APIs are a set of OpenAPI specifications exposed by the Identity Building Block to other building blocks and applications for user verification.
 
 The Identity usage APIs are based on the following principles:
 
@@ -31,69 +31,69 @@ The Identity usage APIs are based on the following principles:
 
 #### Service Group: Client Management
 
-{% swagger src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/client-mgmt/oidc-client" method="post" %}
+{% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/client-mgmt/oidc-client" method="post" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/client-mgmt/oidc-client/{client_id}" method="put" %}
+{% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/client-mgmt/oidc-client/{client_id}" method="put" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/authorize" method="get" %}
+{% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/authorize" method="get" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/oauth/token" method="post" %}
+{% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/oauth/token" method="post" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/oidc/userinfo" method="get" %}
+{% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/oidc/userinfo" method="get" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/.well-known/jwks.json" method="get" %}
+{% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/.well-known/jwks.json" method="get" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/.well-known/openid-configuration" method="get" %}
+{% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/.well-known/openid-configuration" method="get" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 For Identity Building Block implementations that support mobile wallet integration, the following API spec should also be implemented.
 
-{% swagger src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/linked-authorization/link-code" method="post" %}
+{% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/linked-authorization/link-code" method="post" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/linked-authorization/link-status" method="post" %}
+{% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/linked-authorization/link-status" method="post" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/linked-authorization/link-auth-code" method="post" %}
+{% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/linked-authorization/link-auth-code" method="post" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/linked-authorization/link-transaction" method="post" %}
+{% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/linked-authorization/link-transaction" method="post" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/linked-authorization/authenticate" method="post" %}
+{% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/linked-authorization/authenticate" method="post" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/linked-authorization/consent" method="post" %}
+{% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/linked-authorization/consent" method="post" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/wallet-binding" method="post" %}
+{% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/wallet-binding" method="post" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 Detailed API schemas written in YAML that define REST API endpoints for each of the services mentioned above are available on GitHub located at the [Identity-Provider YAML](../api/Identity-Provider.yaml).
 
 The [GovStack non-functional requirements document](https://govstack.gitbook.io/specification/v/1.0/architecture-and-nonfunctional-requirements/6-onboarding) provides additional information on how 'adaptors' may be used to translate an existing API to the patterns described here.
 
-## 8.2 Identity Management
+## 8.2 Enrollment
 
 The Enrollment APIs are a set of OpenAPI specifications exposed by the Identity Building Block ‘Enrollment Server’ service to any enrollment client.
 
@@ -104,9 +104,9 @@ The Enrollment APIs are based on the following principles:
 * Images can be passed by value or reference.
 * Existing standards are used whenever possible, for instance, the preferred image format for biometric data is **ISO-19794**. The underlying data should be of open mime types that offer good compression without loss of data (for example JPEG2000 for images).
 
-{% swagger src=".gitbook/assets/enrollment (3).yaml" path="/enrollment" method="put" %}
+{% openapi src=".gitbook/assets/enrollment (3).yaml" path="/enrollment" method="put" %}
 [enrollment (3).yaml](<.gitbook/assets/enrollment (3).yaml>)
-{% endswagger %}
+{% endopenapi %}
 
 ## **8.3 Credential Management**
 
@@ -121,42 +121,42 @@ The Credential Management APIs are based on the following principles:
 * Wallet applications will receive the identity credentials as per pre-authorized flow.
 * The APIs '/block', '/unblock' and '/updateIdentity' can only be called by systems with administrative permissions given by the IDBB.
 
-{% swagger src=".gitbook/assets/Credential-Management.yaml" path="/share-credential" method="post" %}
+{% openapi src=".gitbook/assets/Credential-Management.yaml" path="/share-credential" method="post" %}
 [Credential-Management.yaml](.gitbook/assets/Credential-Management.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src=".gitbook/assets/Credential-Management.yaml" path="/events/{eventId}?language=LANGCODE" method="get" %}
+{% openapi src=".gitbook/assets/Credential-Management.yaml" path="/events/{eventId}?language=LANGCODE" method="get" %}
 [Credential-Management.yaml](.gitbook/assets/Credential-Management.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src=".gitbook/assets/Credential-Management.yaml" path="/download/personalized-card" method="post" %}
+{% openapi src=".gitbook/assets/Credential-Management.yaml" path="/download/personalized-card" method="post" %}
 [Credential-Management.yaml](.gitbook/assets/Credential-Management.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src=".gitbook/assets/Credential-Management.yaml" path="/update-uin" method="post" %}
+{% openapi src=".gitbook/assets/Credential-Management.yaml" path="/update-uin" method="post" %}
 [Credential-Management.yaml](.gitbook/assets/Credential-Management.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src=".gitbook/assets/Credential-Management.yaml" path="/service-history/{langCode}" method="get" %}
+{% openapi src=".gitbook/assets/Credential-Management.yaml" path="/service-history/{langCode}" method="get" %}
 [Credential-Management.yaml](.gitbook/assets/Credential-Management.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src=".gitbook/assets/Credential-Management.yaml" path="/updateIdentity" method="patch" %}
+{% openapi src=".gitbook/assets/Credential-Management.yaml" path="/updateIdentity" method="patch" %}
 [Credential-Management.yaml](.gitbook/assets/Credential-Management.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src=".gitbook/assets/Credential-Management.yaml" path="/unblock" method="post" %}
+{% openapi src=".gitbook/assets/Credential-Management.yaml" path="/unblock" method="post" %}
 [Credential-Management.yaml](.gitbook/assets/Credential-Management.yaml)
-{% endswagger %}
+{% endopenapi %}
 
-{% swagger src=".gitbook/assets/Credential-Management.yaml" path="/block" method="post" %}
+{% openapi src=".gitbook/assets/Credential-Management.yaml" path="/block" method="post" %}
 [Credential-Management.yaml](.gitbook/assets/Credential-Management.yaml)
-{% endswagger %}
+{% endopenapi %}
 
 ## **8.4 Subscription Management**
 
-The Subscription Management APIs follow the APIs from these standards - WebSub and WebHooks.
+The Subscription Management APIs follow the APIs from the [WebSub](https://www.w3.org/TR/websub/) standard and WebHooks common practice.
 
 ## **8.5 Administration Management**
 
-This Services APIs is not yet specified, but it should be the purpose of a next iteration of the Identity Building Block Specification.
+This Services APIs is not yet specified, but it should be the purpose of a future iteration of the Identity Building Block Specification.

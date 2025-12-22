@@ -4,7 +4,7 @@ description: Terminology used within this specification.
 
 # 3 Terminology
 
-We recognise there are common terms across all ID related Building Blocks (Identity, E-Signature, Consent, Wallet).  We define these [here](id-related-bb-common-terminology.md).
+We recognise there are common terms across all ID related Building Blocks (Identity, E-Signature, Consent, Wallet).  We define these [here](3-terminology/id-related-bb-common-terminology.md).
 
 In addition the following terms are specific to the ID Building Block.
 
@@ -65,9 +65,9 @@ Examples:
 
 ### Credential Management
 
-* Is a document lifecycle management regardless of its form. An identity credential can appear in both physical (e.g. ID card, passport, driver’s license) and electronic form ([eID](./#electronic-identifier-eid));
+* Is a document lifecycle management regardless of its form. An identity credential can appear in both physical (e.g. ID card, passport, driver’s license) and electronic form ([eID](3-terminology.md#electronic-identifier-eid));
 * Includes issuance, maintenance, suspension, termination of suspension, revocation, and expiration;
-* There should be no difference between physical and electronic documents with the exception of audit trail kept during usage of the electronic document ([eID](./#electronic-identifier-eid)).
+* There should be no difference between physical and electronic documents with the exception of audit trail kept during usage of the electronic document ([eID](3-terminology.md#electronic-identifier-eid)).
 
 ### Identity (Digital Identity)
 
@@ -198,7 +198,7 @@ GovStack prefers the term Identity Verification to the term Authentication.
 * Offers mechanisms for verifying a person’s identity locally or by hitting a service offering the verification capabilities.
 * Local verification involves trusting the source of the information by (for example) using digital signatures rather than having to go back to the root source of truth (and hence creating a privacy invasive audit record of the check).
 * Identity verification services might be available in synchronous and asynchronous modes and might have real time or non real time responses.
-* Online identity verification uses a single or multi-factor mechanism. Identity verification involves an identifier and the factors. The identifier may be the User Identification Number (UIN) or an alias that is associated with the UIN in reference to the [eID](./#electronic-identifier-eid) term described above.
+* Online identity verification uses a single or multi-factor mechanism. Identity verification involves an identifier and the factors. The identifier may be the User Identification Number (UIN) or an alias that is associated with the UIN in reference to the [eID](3-terminology.md#electronic-identifier-eid) term described above.
 * A foundational identity system can offer verification services in a centralized or multi-provider (federated/distributed) model.
 * In a federated model identity verification has to come from different sources based on the credential used. This means that there is a need for discovery, registration, resolution and routing of verification requests to the appropriate verification service. This needs a web of trust model to be defined. Such a model will also be repeatable for cross border usage where it will be dealing with a federation of foundational identity systems.
 {% endhint %}
@@ -209,11 +209,11 @@ GovStack prefers the term Identity Verification to the term Authentication.
 
 ### Pairwise Pseudonymous Identifier (PPID)
 
-(also: [Partner Specific User Token, (PSUT)](./#partner-specific-user-token-psut)) Identifier that identifies the Entity to a Relying Party that cannot be correlated with the Entity's PPID at another Relying Party. (OpenID Connect)
+(also: [Partner Specific User Token, (PSUT)](3-terminology.md#partner-specific-user-token-psut)) Identifier that identifies the Entity to a Relying Party that cannot be correlated with the Entity's PPID at another Relying Party. (OpenID Connect)
 
 ### Partner Specific User Token (PSUT)&#x20;
 
-See: [Pairwise Pseudonymous Identifier (PPID)](./#pairwise-pseudonymous-identifier-ppid)
+See: [Pairwise Pseudonymous Identifier (PPID)](3-terminology.md#pairwise-pseudonymous-identifier-ppid)
 
 ### Population Registry
 
@@ -221,7 +221,7 @@ A population registry is a database/system which includes records of the entire 
 
 ### UIN
 
-Stands for Unique Identity Number, this number uniquely identifies a person in the [Foundational ID system](./#foundational-identity-system-fid-system-also-referred-to-as-legal-identification-system). UIN are an optional approach and not necessary.
+Stands for Unique Identity Number, this number uniquely identifies a person in the [Foundational ID system](3-terminology.md#foundational-identity-system-fid-system-also-referred-to-as-legal-identification-system). UIN are an optional approach and not necessary.
 
 
 

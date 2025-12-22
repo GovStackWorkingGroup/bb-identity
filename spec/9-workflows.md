@@ -6,7 +6,7 @@ description: >-
 
 # 9 Internal Workflows
 
-the If GovStack will offer global workflow management for cross-building block use cases, Identity and Verification Building Block will have its internal workflows for its own internal business flows execution.
+the If GovStack will offer global workflow management for cross-building block use cases, Identity Building Block will have its internal workflows for its own internal business flows execution.
 
 Non-exhaustive list of examples:
 
@@ -57,11 +57,7 @@ sequenceDiagram
     IDBB Backend->>+Relying Party Backend: On successful validation, <br>responds with user claims<br> in JWT/JWE format
 ```
 
-<div align="center">
-
-<figure><img src="https://www.mermaidchart.com/app/projects/254d3e3b-e9e1-4879-ac9a-55bb5e729a4a/diagrams/462d368e-7b94-482f-82cf-c05521bc4665/version/v0.1/edit" alt=""><figcaption></figcaption></figure>
-
-</div>
+<div align="center"><figure><img src="https://www.mermaidchart.com/app/projects/254d3e3b-e9e1-4879-ac9a-55bb5e729a4a/diagrams/462d368e-7b94-482f-82cf-c05521bc4665/version/v0.1/edit" alt=""><figcaption></figcaption></figure></div>
 
 #### 9.1.2 Verification without user claims
 
@@ -83,7 +79,7 @@ sequenceDiagram
     IDBB Backend->>Relying Party Backend: On successful validation, returns the ID Token and Access Token
 ```
 
-### 9.2 Identity Management Workflow
+### 9.2 Enrollment Workflow
 
 The enrollment process differs from country to country and the enrollment data collection can be done in-person, or ported from existing servers. Here sample workflows are shown.&#x20;
 

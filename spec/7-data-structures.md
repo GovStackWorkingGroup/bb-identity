@@ -10,9 +10,9 @@ description: >-
 
 ## 7.1 Resource Model
 
-![](.gitbook/assets/spaces\_8B7scSfa9NpeR1BmaFM2\_uploads\_git-blob-d1540ab89d23e8fffeb8c1b6c2ab86116dde9d76\_image4.png)
+![](.gitbook/assets/spaces_8B7scSfa9NpeR1BmaFM2_uploads_git-blob-d1540ab89d23e8fffeb8c1b6c2ab86116dde9d76_image4.png)
 
-Identity and Verification Building Block requires data objects, below are the main ones involved listed:
+Identity Building Block requires data objects, below are the main ones involved listed:
 
 * **Identities** of individuals identified by unique identifiers.
 * **Identifiers**:
@@ -24,7 +24,7 @@ Identity and Verification Building Block requires data objects, below are the ma
 * **Credentials**:
   * Issued for individuals or presented by them, ID Credentials related to an individual should be traced and accessible in the system in order to have the capacity to identify fraud and do an investigation on them, so as to perform auditing.
 * **Registration requests**
-  * Requests will be received by the Identity and Verification Building Block, for example, identity enrollment requests or identity data update registration requests, those requests will be then managed by the different subsystems and the workflows of the Identity and Verification Building Block.
+  * Requests will be received by the Identity Building Block, for example, identity enrollment requests or identity data update registration requests, those requests will be then managed by the different subsystems and the workflows of the Identity  Building Block.
 * **Identification Services**
   * A set of services will be offered on top of identities to identify a person, check some of his/her attributes (i.e. age), or obtain some certified personal information when needed and authorized.
 * **Third parties service user entities**
@@ -42,7 +42,7 @@ Identity verification involves the below data structures.
 
 <table data-header-hidden><thead><tr><th></th><th></th><th></th><th></th><th data-hidden></th><th data-hidden></th><th data-hidden></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Description</strong></td><td><strong>Notes</strong></td><td><strong>Foreign Key</strong></td><td><strong>Constraints</strong></td><td><strong>Required</strong></td></tr><tr><td>sub</td><td>string</td><td>Subject identifier</td><td>Contains the value of the PSUT</td><td></td><td>PK</td><td>Y</td></tr><tr><td>name</td><td>string</td><td>Full name for this end user</td><td></td><td></td><td>Uniq</td><td>Y</td></tr><tr><td>address</td><td>string</td><td>Address of the end user</td><td></td><td></td><td></td><td>Y</td></tr><tr><td>gender</td><td>string</td><td>End user gender</td><td></td><td></td><td></td><td>Y</td></tr><tr><td>birthdate</td><td>date</td><td>End user birthdate</td><td></td><td></td><td></td><td>Y</td></tr><tr><td>picture</td><td>URL</td><td>URL to location where end user's picture is stored</td><td></td><td>Alert</td><td>FK</td><td>N</td></tr><tr><td>email</td><td>string</td><td>Email address for end user</td><td></td><td></td><td></td><td></td></tr><tr><td>phone</td><td>string</td><td>Primary phone for end user</td><td></td><td></td><td></td><td></td></tr><tr><td>locale</td><td>string</td><td>End user's locale</td><td></td><td></td><td></td><td></td></tr></tbody></table>
 
-* **sub** - Subject identifier with the value of PSUT (Partner Specific User Token). This value should be unique for the end user and relying party combination. The same user should have a different subject identifier in different relying party systems to preserve privacy. It must not exceed 255 ASCII characters in length. The sub-value is a case-sensitive string.
+* **sub** - Subject identifier with the value of PPID (Pairwise Pseudonymous identifier, a.k.a. PSUT, Partner Specific User Token). This value should be unique for the end user and relying party combination. The same user should have a different subject identifier in different relying party systems to preserve privacy. It must not exceed 255 ASCII characters in length. The sub-value is a case-sensitive string.
 * **name** - End-User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences.
 * **given\_name** - Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.
 * **family\_name** - Surname(s) or last name(s) of the End-User. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.
@@ -57,7 +57,7 @@ Identity verification involves the below data structures.
   * **postal\_code** - Zip code or postal code component.
   * **country** - Country name component.
 * **gender** - End-User's gender. Values defined by this specification are female and male. Other values may be used when neither of the defined values is applicable.
-* **birthdate** - End-User's birthday, represented as an [ISO 8601:2004](https://openid.net/specs/openid-connect-core-1\_0.html#ISO8601-2004) \[ISO8601‑2004] YYYY-MM-DD format. The year MAY be 0000, indicating that it is omitted. To represent only the year, YYYY format is allowed.
+* **birthdate** - End-User's birthday, represented as an [ISO 8601:2004](https://openid.net/specs/openid-connect-core-1_0.html#ISO8601-2004) \[ISO8601‑2004] YYYY-MM-DD format. The year MAY be 0000, indicating that it is omitted. To represent only the year, YYYY format is allowed.
 * **picture** - URL of the End-user's profile picture. This URL must refer to an image file (for example, a PNG, JPEG, or GIF image file), rather than to a Web page containing an image.
 * **email** - End-User's preferred e-mail address. Its value must conform to the [RFC 5322](https://www.rfc-editor.org/rfc/rfc5322) \[RFC5322] addr-spec syntax.
 * **email\_verified** - True if the End-user's e-mail address has been verified; otherwise false.
