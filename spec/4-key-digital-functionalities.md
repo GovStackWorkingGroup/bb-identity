@@ -19,7 +19,7 @@ The Identity Building Block must enable usage from the following actors:
 
 The internal storage of the Identity Building Block must hold the configuration, status, and logged information of all scheduled events. It must also maintain a repository of details of Partners, Users and Subscribers. The key digital functionalities that are considered within the current scope of the specifications are listed below:
 
-## 4.1 Core Services
+## **4.1 Core Services**
 
 This section provides a description of the Key Functionalities for each of the core services of the Identity Building Block that was described in Section 2.
 
@@ -33,9 +33,9 @@ Enrollment services exposes API to on-board new and update existing identities. 
 
 Once a new identity has been registered a Unique Identity Number (UIN) will be generated for further representing the User in the GovStack. For privacy purposes, this UIN will be kept secret inside the Identity Building Block, and tokens (randomly generated identifiers) or aliases (existing identifiers) will be linked to it and shared with the User for further involvement in the Identity Verification services or for the Credential management.&#x20;
 
-### **4.1.2 Identity Verification**
+### 4.1.2 Identity Verification
 
-Registered and Authorized Partners have access to Identity Building Block Identity verification APIs to request Authentication of Users.  If successful, they can collect personal information (e.g. User's name, User is older than 18 years old) after a User informed consent (if applicable) is given. For a specific Partner and a specific User, the Identity Building Block will produce a unique and repeatable Pairwise Pseudonymous Identifier (PPID, a.k.a. PSUT). This service can be used in other Building Blocks, in public services, but also in private services, even cross-countries.&#x20;
+Registered and Authorized Partners have access to Identity Building Block Identity verification APIs to request Authentication of Users.  If successful, they can collect personal information (e.g. User's name, User is older than 18 years old) after a User informed consent (if applicable) is given. For a specific Partner and a specific User, the Identity Building Block will produce a unique and repeatable [Pairwise Pseudonymous Identifier](3-terminology.md#pairwise-pseudonymous-identifier-ppid) ([PPID](3-terminology.md#pairwise-pseudonymous-identifier-ppid), a.k.a. [PSUT](3-terminology.md#partner-specific-user-token-psut)). This service can be used in other Building Blocks, in public services, but also in private services, even cross-countries.&#x20;
 
 Section 8 defines an OpenID Connect based API for Identity Verification.
 
@@ -63,11 +63,13 @@ Partners will have the possibility to subscribe for Identity-related events for 
 
 ## **4.2 Other services**
 
-### **4.2.1 Service for users to manage their identity**
+### 4.2.1 Service for users to manage their identity
 
-User Interfaces and APIs will allow a user to have a management of their personal data for CRUD requests (Create, Read, Update, Delete) according to GDPR regulation and to the Adopting Country laws, policies and practices. A User will have the possibility to generate a temporary and revokable Virtual ID to preserve its privacy for temporary use. A User will have the possibility to link an existing personal identifier for leveraging on existing forms of trusted ID (i.e. ID Card Number, Passport Number, Phone Number, e-mail address, etc.). This identifier will be usable within Identity Verification services.
+* 4.2.1.1 User Interfaces and APIs will allow a user to have a management of their personal data for CRUD requests (Create, Read, Update, Delete) according to GDPR regulation and to the Adopting Country laws, policies and practices.&#x20;
+* 4.2.1.2 A User will have the possibility to generate a temporary and revocable Virtual ID to preserve its privacy for temporary use.&#x20;
+* 4.2.1.3 A User will have the possibility to link an existing personal identifier for leveraging on existing forms of trusted ID (i.e. ID Card Number, Passport Number, Phone Number, e-mail address, etc.). This identifier will be usable within Identity Verification services.
 
-### **4.2.2 Administration Management**
+### 4.2.2 Administration Management
 
 GovStack administrators will have functionalities to configure the Identity Building Block from a central place.
 

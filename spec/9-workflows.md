@@ -17,11 +17,11 @@ Non-exhaustive list of examples:
 
 Those workflows will be described in a later version.
 
-### 9.1 Identity Verification Workflow
+## 9.1 Identity Verification Workflow
 
 The below workflow details the steps involved in the relying party application enabling the end user to log in using their National ID. Once the login process is completed, Identity Building Block also allows the relying party to get verified user claims based on explicit permission from the end user.
 
-#### 9.1.1 Verification with user claims
+### 9.1.1 Verification with user claims
 
 The steps are:
 
@@ -59,7 +59,7 @@ sequenceDiagram
 
 <div align="center"><figure><img src="https://www.mermaidchart.com/app/projects/254d3e3b-e9e1-4879-ac9a-55bb5e729a4a/diagrams/462d368e-7b94-482f-82cf-c05521bc4665/version/v0.1/edit" alt=""><figcaption></figcaption></figure></div>
 
-#### 9.1.2 Verification without user claims
+### 9.1.2 Verification without user claims
 
 If the relying party wants to verify the identity of the end user without user information, then a lean workflow can be adopted. The steps of lean flow are similar to the workflow steps in previous section. However, during /authorize API call, the scope is set to "openid". This informs the IDBB UI that no user claims will be accessed and thus IDBB UI doesn't show any consent page and these steps are skipped in the workflow.
 
@@ -79,11 +79,11 @@ sequenceDiagram
     IDBB Backend->>Relying Party Backend: On successful validation, returns the ID Token and Access Token
 ```
 
-### 9.2 Enrollment Workflow
+## **9.2 Enrollment Workflow**
 
 The enrollment process differs from country to country and the enrollment data collection can be done in-person, or ported from existing servers. Here sample workflows are shown.&#x20;
 
-#### 9.2.1 Enrollment Workflow (Fresh Enrollment)
+### 9.2.1 Enrollment Workflow (Fresh Enrollment)
 
 These are the sample steps for fresh enrollment where the enrollment data is collected afresh:
 
@@ -105,7 +105,7 @@ sequenceDiagram
     IDBB Packet Processor->>User: Upon successful enrollment, notify user of Unique Identity generation
 ```
 
-#### 9.2.2 Enrollment Workflow (Enrollment with existing database)
+### 9.2.2 Enrollment Workflow (Enrollment with existing database)
 
 These are the steps for enrollment using existing data, in which the demographic details are collected from an existing database and biometric data is collected afresh.
 
@@ -131,9 +131,9 @@ sequenceDiagram
     IDBB Packet Processor->>User: Upon successful enrollment, notify user of Unique Identity generation
 ```
 
-### 9.3 Credential Management&#x20;
+## **9.3 Credential Management**&#x20;
 
-#### 9.3.1 Sharing Credentials
+### 9.3.1 Sharing Credentials
 
 This sequence diagram shows the workflow for sharing credentials.
 
@@ -160,7 +160,7 @@ sequenceDiagram
     Citizen Portal->>User: Provide a downloadable document with the user's credentials
 ```
 
-#### 9.3.2 Download Credentials
+### 9.3.2 Download Credentials
 
 This sequence diagram shows the workflow for downloading a Unique Identity Card:
 
@@ -181,7 +181,7 @@ sequenceDiagram
     User->>Citizen Portal: Logout
 ```
 
-### 9.4 Notification Workflow
+## **9.4 Notification Workflow**
 
 
 

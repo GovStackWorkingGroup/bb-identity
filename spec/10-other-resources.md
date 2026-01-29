@@ -17,11 +17,13 @@ For this purpose, the team is suggesting the following already available and rec
 * [ISO/IEC 24760](https://www.iso.org/standard/77582.html)
 * Modular Open Source Identity Platform ([MOSIP](https://github.com/mosip)), which also includes information about their [APIs MOSIP](https://docs.mosip.io/platform/apis).
 * Open Standard Identity APIs for interoperability within Identity System: [OSIA](https://osia.readthedocs.io/en/latest/01%20-%20intro.html#problem-statement-lack-of-interoperability-in-identity-systems).
+* [Consideration of Authentication Methods](10-other-resources/consideration-of-authentication-methods.md)
 
-## 10.1 Key Decision Log
+## **10.1 Key Decision Log**
 
-[A historical log of key decisions regarding this Building Block](https://govstack-global.atlassian.net/l/cp/9vBor6Na).
+* [A historical log of key decisions regarding this Building Block](https://govstack-global.atlassian.net/l/cp/9vBor6Na).
+* [ID-WGDR-2026-1](../WGDR/ID-WGDR-1.md): Version 2 Re-structuring of Key Digital Functionalities and their Functional Requirements
 
-## 10.2 Future Considerations
+## **10.2 Future Considerations**
 
 [A list of topics that may be relevant to future versions of this Building Block](https://govstack-global.atlassian.net/l/cp/u2KUXTaV).

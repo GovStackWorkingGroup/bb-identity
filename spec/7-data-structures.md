@@ -6,7 +6,7 @@ description: >-
 
 # 7 Data Structures
 
-## 7.1 Resource Model
+## **7.1 Resource Model**
 
 ![](.gitbook/assets/spaces_8B7scSfa9NpeR1BmaFM2_uploads_git-blob-d1540ab89d23e8fffeb8c1b6c2ab86116dde9d76_image4.png)
 
@@ -28,7 +28,7 @@ Identity Building Block requires data objects, below are the main ones involved 
 * **Third parties service user entities**
   * External entities which could be GovStack Building Blocks or not, will have access to and use the services, for that purpose, their access will be granted, consent may be given by the individuals and their activities will be logged.
 
-## 7.2 Identity verification Data Structures <a href="#worklist-data-structure" id="worklist-data-structure"></a>
+## **7.2 Identity verification Data Structures** <a href="#worklist-data-structure" id="worklist-data-structure"></a>
 
 Identity verification involves the below data structures.
 
@@ -64,7 +64,7 @@ Identity verification involves the below data structures.
 * **locale** - End-User's locale, represented as a [BCP47](https://www.rfc-editor.org/rfc/rfc5646) \[RFC5646] language tag. This is typically an ISO 639-1 Alpha-2 \[ISO639‑1] language code in lowercase and an [ISO 3166-1 Alpha-2](https://www.w3.org/WAI/ER/IG/ert/iso639.htm) \[ISO3166‑1] country code in uppercase, separated by a dash. For example, en-US or fr-CA.
 * **zoneinfo** - String from zoneinfo time zone database representing the End-User's time zone. For example, Europe/Paris or America/Los\_Angeles.
 
-#### 7.2.2 Scope
+### 7.2.2 Scope
 
 **Description:** Scopes can be used to request that specific sets of information be made available as claim values. The following scope values will be supported by Identity Building Block implementation for requesting specific details of end-user.
 
@@ -79,7 +79,7 @@ The following claims are used within the ID Token
 * **address** - This scope value requests access to the address claim.
 * **phone** - This scope value requests access to the phone\_number and phone\_number\_verified claim.
 
-#### 7.2.3 ID Token
+### 7.2.3 ID Token
 
 **Description:** The ID Token is a security token that contains the end user's basic identifier information and a few other claims about the authentication event. The ID Token is represented as a [JSON Web Token (JWT) \[JWT\]](https://datatracker.ietf.org/doc/html/rfc7519).
 
@@ -111,7 +111,7 @@ The following claims are used within the ID Token
 
 * **at\_hash** - Access Token hash value. Its value is the base64url encoding of the left-most half of the hash of the octets of the ASCII representation of the access\_token value, where the hash algorithm used is the hash algorithm used in the alg Header Parameter of the ID Token's JOSE Header. For instance, if the alg is RS256, hash the access\_token value with SHA-256, then take the left-most 128 bits and base64url encode them. The at\_hash value is a case-sensitive string.
 
-#### 7.2.4 Access Token
+### 7.2.4 Access Token
 
 **Description:** Access token represents the authorization of a specific application to access specific parts of a user’s data. The Access Token is represented as a [JSON Web Token (JWT)](https://datatracker.ietf.org/doc/html/rfc7519) \[JWT].
 
@@ -127,11 +127,11 @@ The following claims are used within the ID Token
 * **iat** - Time at which the JWT was issued. Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time.
 * **jti** - JWT ID provides a unique identifier for the JWT. The identifier value must be assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object. This can be used to prevent the JWT from being replayed. The jti value is a case-sensitive string.
 
-## 7.3 Identity Management Data Structures
+## **7.3 Identity Management Data Structures**
 
 Identity management uses these data structures.
 
-#### 7.3.1 Enrollment Request
+### 7.3.1 Enrollment Request
 
 **Description:** The purpose of enrollment request is create/update enrollment of users using new registration process, importing data from existing servers, or a mix of these two processes.
 
@@ -203,7 +203,7 @@ Identity management uses these data structures.
 | sbInfo.format.type                     | string                   | NA                                                                                                                                                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | others                                 | object                   | Additional information about the capture                                                                                                                                                | <p>&#x3C;others></p><p>            &#x3C;entry key="SPEC_VERSION">&#x3C;/entry></p><p>            &#x3C;entry key="RETRIES">0&#x3C;/entry></p><p>            &#x3C;entry key="FORCE_CAPTURED">false&#x3C;/entry></p><p>            &#x3C;entry key="EXCEPTION">true&#x3C;/entry></p><p>            &#x3C;entry key="PAYLOAD">&#x3C;/entry></p><p>            &#x3C;entry key="SDK_SCORE">0.0&#x3C;/entry></p><p>        &#x3C;/others></p> |
 
-#### 7.3.2 Enrollment Response
+### 7.3.2 Enrollment Response
 
 **Description:** This field is the response received in response to the enrollment request.
 
@@ -211,29 +211,29 @@ Identity management uses these data structures.
 
 <table data-header-hidden><thead><tr><th width="200"></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>id</td><td>string</td><td>ID of the API</td><td></td></tr><tr><td>version</td><td>string</td><td>Version of the API</td><td></td></tr><tr><td>responsetime</td><td>string&#x3C;date-time></td><td>Response time of the API</td><td>2023-06-09T06:59:32.946225700Z</td></tr><tr><td>metadata</td><td>object</td><td>Metainfo of the Packet in key-value pair</td><td>NULL</td></tr><tr><td>response</td><td>Array of objects</td><td>Response of the API</td><td></td></tr><tr><td>response.id</td><td>string</td><td>The registration id</td><td>rid</td></tr><tr><td>response.packetName</td><td>string</td><td>The sub packet name</td><td>Id / optional / evidence</td></tr><tr><td>response.source</td><td>string</td><td>Packet source. Typically name of the source system</td><td>REGISTRATION_CLIENT</td></tr><tr><td>response.process</td><td>string</td><td>The packet process. Could be NEW/UPDATE/LOST or a newly created process</td><td>NEW/UPDATE/LAST</td></tr><tr><td>response.refId</td><td>string</td><td>The reference id used for getting the private key from keymanager. Typically centerid_machineid</td><td>110011_110011</td></tr><tr><td>response.schemaVersion</td><td>string</td><td>The id schema version</td><td>0.1</td></tr><tr><td>response.signature</td><td>string</td><td>The packet signature</td><td>The signature string</td></tr><tr><td>response.encryptedHash</td><td>string</td><td>The sub packet encrypted hash value</td><td>The encrypted hash string</td></tr><tr><td>response.providerName</td><td>string</td><td>The packet store provider</td><td>PacketWriterImpl</td></tr><tr><td>response.providerVersion</td><td>string</td><td>The version of provider</td><td>1.0</td></tr><tr><td>response.creationDate</td><td>string</td><td>The packet creation date</td><td>2023-06-09T06:59:32.946225700Z</td></tr><tr><td>errors</td><td>Array of objects</td><td>Errors if any</td><td></td></tr><tr><td>errors.errorCode</td><td>string</td><td>The error code</td><td></td></tr><tr><td>errors.message</td><td>string</td><td>The error message</td><td></td></tr></tbody></table>
 
-## 7.4 Credential Management Data Structures
+## **7.4 Credential Management Data Structures**
 
 Credential management uses these API fields and data structures.
 
-#### 7.4.1  Common API Parameters
+### 7.4.1  Common API Parameters
 
 This table describes common parameters used by the Credential Management APIs.
 
 <table><thead><tr><th>Name</th><th width="110">Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>string</td><td>ID of the API</td><td>resident.share.credential</td></tr><tr><td>version</td><td>string</td><td>Version of the API</td><td>1.0</td></tr><tr><td>requesttime</td><td>string</td><td>Request time of the API</td><td>2022-06-23T12:00:40.326Z</td></tr><tr><td>responsetime</td><td>string</td><td>Response time of the API</td><td>2022-06-23T12:00:40.326Z</td></tr><tr><td>errors</td><td>Array of objects</td><td>Errors if any</td><td></td></tr><tr><td>errors.errorCode</td><td>string</td><td>The error code</td><td></td></tr><tr><td>errors.message</td><td>string</td><td>The error message</td><td></td></tr></tbody></table>
 
-#### 7.4.2 Request to Share Credential
+### 7.4.2 Request to Share Credential
 
 This table describes the parameters of the schema 'ShareCredentialInfo' used by the Credential Management API '/share-credential'.
 
 <table><thead><tr><th width="340">Name</th><th width="95">Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>partnerId </td><td>string</td><td>Id to which credentials will be shared</td><td>resident.share.credential</td></tr><tr><td>sharableAttributes</td><td>Array of objects</td><td></td><td></td></tr><tr><td>sharableAttributes.attributeName</td><td>string</td><td>Name of attribute</td><td>dateOfBirth</td></tr><tr><td>sharableAttributes.format</td><td>string</td><td>Format of attribute</td><td>DDMMYYYY</td></tr><tr><td>sharableAttributes.isMasked</td><td>boolean</td><td>Boolean value whether to mask or not</td><td>true</td></tr><tr><td>purpose</td><td>string</td><td>Alphanumeric string stating the purpose of sharing the credential</td><td>Sharing Credential with Partner</td></tr><tr><td>consent</td><td>string</td><td>Consent whether Accepted or denied</td><td>Accepted</td></tr></tbody></table>
 
-#### 7.4.3 Event Response for Sharing Credential
+### 7.4.3 Event Response for Sharing Credential
 
 This table describes the parameters of the schema 'EventResp' used by the API '/events/{eventId}?language=LANGCODE'.
 
 <table><thead><tr><th width="275">Name</th><th>Type</th><th width="184">Description</th><th>Example</th></tr></thead><tbody><tr><td>eventId</td><td>string</td><td>The eventId for the share credential format</td><td>Randomly generated 16 digit number</td></tr><tr><td>eventType</td><td>string</td><td>Type of event</td><td>Authentication</td></tr><tr><td>eventStatus</td><td>string</td><td>Status of request</td><td>succss, failure or in-progress</td></tr><tr><td>individualId</td><td>string</td><td>UIN/Vid of logged in user</td><td></td></tr><tr><td>summary</td><td>string</td><td>short summary about the event</td><td></td></tr><tr><td>timestamp</td><td>string</td><td>local timestamp</td><td></td></tr><tr><td>info</td><td>object</td><td>Info for multiple attributes</td><td></td></tr><tr><td>info.purpose</td><td>string</td><td>Purpose to share credential like </td><td>sharing with a banking parter</td></tr><tr><td>info.applicantName</td><td>string</td><td>name of applicant</td><td></td></tr><tr><td>info.partnerId</td><td>string</td><td>parter id to which we want to share credential</td><td></td></tr><tr><td>info.partnerLogo</td><td>string</td><td>Logo of partner if any</td><td></td></tr><tr><td>info.partnerName</td><td>string</td><td>name of partner</td><td></td></tr><tr><td>info.paymentStatus</td><td>string</td><td>status of payment</td><td></td></tr><tr><td>info.partnerTransactionId</td><td>string</td><td>unique transaction id of payment if any</td><td></td></tr><tr><td>info.deliveryAddres</td><td>string </td><td>delieveryAddress of user in case of order physical card</td><td></td></tr><tr><td>info.authenticationMode</td><td>string </td><td>mode of authentication like OTP</td><td></td></tr><tr><td>info.vidType</td><td>string </td><td>type of vid</td><td>permanent or one-time</td></tr><tr><td>info.vid</td><td>string </td><td>virtual id that is created with the help of uin</td><td></td></tr><tr><td>info.attributeList</td><td>string </td><td>list of attributes</td><td>firstName, email, etc.</td></tr><tr><td>info.downloadCardLink</td><td>string </td><td>direct link to download</td><td></td></tr><tr><td>info.orderTrackingLink</td><td>string </td><td>direct link to track order status</td><td></td></tr><tr><td>info.trackingId</td><td>string</td><td>id to track order</td><td></td></tr></tbody></table>
 
-#### 7.4.4 Update Credential Information for a Unique Identity Number&#x20;
+### 7.4.4 Update Credential Information for a Unique Identity Number&#x20;
 
 This table describes the parameters of the schema 'UpdateUINInfo' used by the API '/update-uin'.
 
@@ -248,7 +248,7 @@ This table describes the parameters of the schema 'UpdateUINInfo' used by the AP
 | documents.name   | string           | document cateogory                                   | proof of resident |
 | documents.value  | string           | document value                                       | pdf content       |
 
-#### 7.4.5 Status of Credential Service Request
+### 7.4.5 Status of Credential Service Request
 
 This table describes the parameters of the schema 'ServiceHistoryInfo' used by the API '/service-history/{langCode}'.
 
@@ -265,7 +265,7 @@ This table describes the parameters of the schema 'ServiceHistoryInfo' used by t
 | data.timeStamp        | string           | timestamp of response                                          |         |
 | data.requestType      | string           | type of request                                                |         |
 
-#### 7.4.6 Update identity information for a specific UIN
+### 7.4.6 Update identity information for a specific UIN
 
 This table describes the parameters of the schema 'ServiceHistoryInfo' used by the API '/service-history/{langCode}'.
 
@@ -281,7 +281,7 @@ This table describes the parameters of the schema 'ServiceHistoryInfo' used by t
 | registrationId                     | string           | unique id created while registring uin |                   |
 | uin                                | string           | unique value for each individual       |                   |
 
-#### 7.4.7 Administratively block/unblock UIN
+### 7.4.7 Administratively block/unblock UIN
 
 This table describes the parameters of the schema 'UINAdminRequest' used by the APIs '/block' and '/unblock'.
 

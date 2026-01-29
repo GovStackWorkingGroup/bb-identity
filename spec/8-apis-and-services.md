@@ -19,7 +19,7 @@ The tests for the Identity Building Block can be found in [this GitHub repositor
 * The microservice interfaces are defined as per [OPENAPI Ver3.0 standards](https://swagger.io/specification/).
 * For implementation purposes, it is suggested to refer [TMF630\_REST\_API\_Design\_Guidelines](https://www.tmforum.org/resources/standard/tmf630-rest-api-design-guidelines-4-2-0/).
 
-## 8.1 Identity Verification
+## **8.1 Identity Verification**
 
 The Identity Verification APIs are a set of OpenAPI specifications exposed by the Identity Building Block to other building blocks and applications for user verification.
 
@@ -29,7 +29,7 @@ The Identity usage APIs are based on the following principles:
 * Only secure options in OpenID connect should be supported to ensure the user data is handled securely
 * All biometric capture for user verification should be done using [Secure Biometrics Interface standards](https://standards.ieee.org/ieee/3167/10925/)
 
-#### Service Group: Client Management
+### 8.1.1 Service Group: Client Management
 
 {% openapi src="https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml" path="/client-mgmt/oidc-client" method="post" %}
 [https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml](https://raw.githubusercontent.com/GovStackWorkingGroup/bb-identity/main/api/Identity-Provider.yaml)
@@ -93,7 +93,7 @@ Detailed API schemas written in YAML that define REST API endpoints for each of 
 
 The [GovStack non-functional requirements document](https://govstack.gitbook.io/specification/v/1.0/architecture-and-nonfunctional-requirements/6-onboarding) provides additional information on how 'adaptors' may be used to translate an existing API to the patterns described here.
 
-## 8.2 Enrollment
+## **8.2 Enrollment**
 
 The Enrollment APIs are a set of OpenAPI specifications exposed by the Identity Building Block ‘Enrollment Server’ service to any enrollment client.
 
