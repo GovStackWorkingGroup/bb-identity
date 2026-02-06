@@ -21,4 +21,4 @@ Yuliia Kravchenko, Smita Selot
 _**Editor:**_\
 Ali González-García
 
-<figure><img src=".gitbook/assets/id.svg" alt="Identity Building Block Cover"><figcaption><p>Identity BB Cover</p></figcaption></figure>
+<figure><img src=".gitbook/assets/id(1).svg" alt="Identity Building Block Cover"><figcaption><p>Identity BB Cover</p></figcaption></figure>
